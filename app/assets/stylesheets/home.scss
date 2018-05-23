@@ -1,0 +1,1707 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* トップページ ================================ */
+.topwrapper1 {
+	background-image: url(/book_images/book16.jpg);
+	width: 100%;
+	height: 400px;
+	margin-top: 90px;
+	background-size: cover;
+	background-position: center center;
+	color: white;
+}
+.topwrapper1_content {
+	margin-left: 10%;
+	padding-top: 120px;
+}
+.topwrapper1_bookName h1 {
+	font-size: 40px;
+	margin-left: 60px;
+	text-shadow: 0px 1px 6px #000000;
+}
+.topwrapper1_author h3 {
+	font-size: 28px;
+	margin-left: 80px;
+	text-shadow: 0px 1px 6px #000000;
+}
+.topwrapper1_story {
+	padding-top: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	text-shadow: 0px 1px 10px #000000;
+}
+.topwrapper1_btn {
+	margin-top: 30px;
+	margin-left: 50px;
+}
+.topwrapper1_btn a {
+	text-align: center;
+	color: white; 
+	font-size: 18px;
+	background-color: #696969;
+	padding: 15px 50px;
+	box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.5);	
+	border-radius: 10px;
+	transition: all 1s;
+}
+.topwrapper1_btn a:hover {
+	background-color: #00BFFF;
+}
+.topwrapper2 {
+	width: 100%;
+	color: white;
+}
+.topwrapper2_content {
+	width: 98%;
+	margin: 40px auto;
+}
+.topwrapper2_authors {
+	width: 100%;
+	margin: 0 auto 60px auto;
+	.topwrapper2_authors_title {
+		font-size: 24px; 
+		font-weight: bold;
+		padding-bottom: 20px;
+		color: white;
+		transition: all 1s;
+		&:hover {
+			.author_checkAll {
+				display: inline-block;
+			}
+		}
+		.author_checkAll {
+			font-size: 18px;
+			font-weight: bold;
+			display: none;
+		}
+	}
+	.topwrapper2_authorsSize {
+		width: 20%;
+		display: inline-block;
+		.topwrapper2_authors_contents {
+			text-align: center;
+			.topwrapper2_authors_img {
+				img {
+					height: 240px;
+					width: 240px;
+					border-radius: 50%;
+					transition: all 1s;
+					&:hover {
+						box-shadow: 0 0 15px 10px rgba(0, 0, 205, 0.8);
+					}
+				}
+			}
+			.topwrapper2_authors_name {
+				padding-top: 15px;
+				font-size: 24px;
+				font-weight: bold;
+				color: white;
+				display: inline-block;
+				white-space: nowrap;
+			}
+		}
+	}
+}
+.topwrapper2_authorsRow {
+	white-space: nowrap;
+  	overflow-x: scroll;
+  	overflow-y: hidden;
+  	height: auto;
+  	vertical-align: bottom;
+}
+.topwrapper2_row {
+	margin-bottom: 60px;
+}
+.topwrapper2_row_name {
+	font-size: 24px; 
+	font-weight: bold;
+}
+.topwrapper2_row_working {
+	margin-top: 20px;
+	margin-bottom: 20px;
+  	height: auto;
+}
+.topwrapper2_row_content {
+	color: white;
+	background-position: center center;
+	background-size: cover;
+	float: left;
+	box-shadow: 0 0 12px 12px rgba(0, 0, 0, 0.5);
+	width: 310px; 
+	height: 370px;
+	white-space: normal;
+	transition: all 1s;
+}
+.topwrapper2_row_content_size {
+	width: 25%;
+	float: left;
+	margin-bottom: 80px;
+}
+.topwrapper2_row_content:hover {
+	box-shadow: 0 0 15px 10px rgba(0, 0, 205, 0.8);
+}
+.topwrapper2_row_contentReview {
+	width: 90%;
+	margin: 10px auto;
+}
+.topReview_star {
+	float: left;
+	color: #0000CD;
+	font-size: 20px;
+	font-weight: bold;
+}
+.topReview_quant {
+	padding-left: 30px;
+	float: left;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+}
+.bookLike_delete {
+	padding-top: 20px;
+}
+.bookLike_delete i {
+	font-size: 50px;
+	transition: all 1s;
+	cursor: pointer;
+}
+.bookLike_delete i:hover {
+	color: #0000CD;
+}
+.reader_centralReadingBook button {
+	background-color: rgba(0,0,255,0);
+	color: white;
+	border: none;
+	float: left;
+	margin-left: 37%;
+}
+.zoom-black {
+	background-color: rgba(0,0,0,0.6);
+	width: 100%;  
+	margin-top: 88.8%;
+}
+.zoom-black-hover {
+	display: none;
+	background-color: rgba(0,0,0,0.6);
+	width: 100%; 
+	height: 370px; 
+}
+.zoom-black-hover h3 {
+	text-align: center;
+	font-size: 40px; 
+	padding-top: 40px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.aozora_p {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	color: #1E90FF;
+}
+.zoom-black h3 {
+	text-align: center;
+	font-size: 30px; 
+	padding-top: 15px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.zoom-black h5 {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.zoom-black-hover h5 {
+	text-align: center;
+	padding-top: 10px;
+	font-size: 26px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.zoom-black_hide {
+	margin-top: 30px;
+	padding: 0 10px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.active_top {
+	display: block;
+}
+/* 本の概要ページ ================================ */
+.book_briefPage {
+	background-color: rgba(0,0,0,0.6);
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-size: cover;
+	margin-top: 100px;
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+}
+.book_briefPage_black {
+	background-color: rgba(0,0,0,0.6);
+	width: 100%;
+	height: 100%;
+}
+.book_briefPage_content {
+	width: 80%; 
+	margin: 0 auto;
+}
+.book_briefPage_content_head {
+	color: white;
+}
+.book_briefPage_content_head h1 {
+	text-align: center;
+	padding-top: 40px;
+	font-size: 50px;
+}
+.book_briefPage_content_head h3 {
+	text-align: center;
+	padding-top: 10px;
+	font-size: 30px;
+	color: #1E90FF;
+}
+.book_briefPage_content_head p {
+	color: white;
+	text-align: left;
+	padding-top: 30px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.book_briefPage_startRead {
+	margin: 80px 0;
+	text-align: center;
+}
+.book_briefPage_startRead a {
+	color: white; 
+	padding: 20px 100px; 
+	font-size: 30px;
+	font-weight: bold;
+	background-color: #00BFFF;
+	border-radius: 10px;
+	box-shadow: 0 0 12px 12px rgba(0, 0, 0, 0.5);
+}
+.book_briefPage_startRead a:hover {
+	background-color: #0000CD;
+}
+.book_briefPage_mokuji {
+	text-align: center;
+	margin: 150px 0 60px 0;
+	color: white;
+}
+.book_briefPage_mokuji h1 {
+	padding: 50px 0;
+	font-size: 48px;
+}
+.book_briefPage_mokuji p {
+	width: 800px;
+	margin: 0 auto 50px auto;
+	color: white;
+	padding: 20px 0;
+	background-color: rgba(0,191,255,0.8);
+	border-radius: 10px;
+	font-size: 24px;
+	font-weight: bold;
+	box-shadow: 0 0 12px 12px rgba(0, 0, 0, 0.5);
+	transition: all 1s;
+}
+.book_briefPage_mokuji p:hover {
+	background-color: rgba(0,250,154,0.8);
+}
+.book_briefPage_character {
+	padding: 120px 0;
+	color: white;
+}
+.book_briefPage_character h1 {
+	font-size: 40px;
+	padding-bottom: 60px;
+}
+.book_briefPage_character1 {
+	margin-bottom: 40px;
+	font-size: 24px;
+}
+.book_briefPage_character_name {
+	font-size: 26px;
+	font-weight: bold;
+	float: left; 
+	width: 25%;
+	padding-right: 20px;
+}
+.book_briefPage_character_dot {
+	float: left;
+}
+.book_briefPage_character_explain {
+	float: left;
+	font-size: 20px;
+	padding-left: 80px;
+}
+/* 本の読書ページ ================================ */
+.read_chapterPage {
+	width: 100%;
+    position: relative;
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+}
+.read_chapter_content {
+	width: 100%;
+	height: 100%;
+	min-height: 1000px;
+	margin: 100px auto 0 auto;
+	background-position: center center;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+	padding-top: 40px;
+	padding-bottom: 150px;
+	overflow: scroll;
+}
+.reccomment_to_regist {
+	position: fixed;
+	top: 115px;
+	left: 0px;
+	z-index: 10;
+	width: 100%;
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+	padding: 15px 0;
+	text-align: center;
+	background-color: #1E90FF;
+	transition: all 1s;
+	&:hover {
+		background-color: #0000CD;
+	}
+}
+.writingBookPage_reading_all {
+	margin-top: 60px;
+	padding-bottom: 0px;
+}
+.writingBookPage_reading_content {
+	width: 96%;
+	margin: 15px auto;
+	padding-bottom: 80px;
+}
+.read_chapter_footer_content {
+	width: 100%;
+	background-color: #808080;
+	z-index: 10;
+	position: fixed;
+    bottom: 0%;
+    width: 100%;
+	height: 100px;
+}
+.read_chapter_footer_content a {
+	color: white;
+	border-radius: 10px;
+}
+.footer_float {
+	float: left;
+	width: 20%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 80px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.92);
+	border-radius: 10px;
+	box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.5);
+	transition: all 1s;
+}
+.footer_float:hover {
+	background-color: #1E90FF;
+}
+.footer_float h5 {
+	font-size: 30px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.footer_float p {
+	font-size: 20px;
+}
+.footer_previewStory {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.footer_mokuji, .footer_nextStory {
+	margin-right: 10%;
+}
+.footer_mokuji h5 {
+	padding-top: 20px;
+}
+.book_review {
+	width: 90%;
+	margin: 0 auto;
+	background-color: #696969;
+	border-radius: 10px;
+}
+.book_review_content {
+	width: 80%;
+	margin: 20px auto;
+}
+.book_review_content h3 {
+	color: white;
+	font-size: 24px;
+	padding: 20px 0 10px 0;
+}
+.book_review_content h5 {
+	color: white;
+	font-size: 20px;
+	padding: 10px 0;
+}
+.book_review_icon {
+	margin: 10px 0 30px 0;
+}
+.book_review_iconFace {
+	float: left;
+	width: 33%;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+.book_review_iconFace i {
+	font-size: 60px;
+}
+.smile i {
+	color: #0000CD;
+}
+.normal i {
+	color: #FFA500;
+}
+.bad i {
+	color: #FF69B4;
+}
+.book_review_content textarea {
+	width: 80%;
+	height: 150px;
+	margin: 0 10%;
+	padding: 15px;
+	color: #696969;
+	font-weight: bold;
+	font-size: 18px;
+	border: 3px solid #00BFFF;
+	border-radius: 10px;
+}
+.bookReview_submit {
+	text-align: center;
+	margin-top: 40px;
+	padding-bottom: 40px;
+}
+.bookReview_submit input {
+	border: none;
+	background-color: #1E90FF;
+	color: white;
+	font-size: 26px;
+	font-weight: bold;
+	padding: 15px 40px;
+	border-radius: 10px;
+	transition: all 1s;
+	cursor: pointer;
+}
+.bookReview_submit input:hover {
+	background-color: #0000CD;
+}
+
+/* 作家紹介ページ ================================ */
+.author_introduceContent {
+	width: 98%;
+	margin: 140px auto; 
+	.author_intCenter {
+		text-align: center;
+	}
+	.author_image img {
+		width: 240px;
+		height: 240px; 
+		border-radius: 50%;
+	}
+	.author_name {
+		font-size: 24px;
+		padding: 20px 0;
+		color: white;
+	}
+	.author_description {
+		width: 70%;
+		margin: 0 auto;
+		font-size: 18px;
+		font-weight: bold;
+		color: white;
+	}
+	.author_share {
+		text-align: center;
+		margin-top: 30px;
+		a {
+			margin: 0 30px;
+			color: white;
+			&:hover {
+				color: #00BFFF;
+			}
+		}
+	}
+	.author_working {
+		width: 100%;
+		margin: 60px auto;
+		h2 {
+			color: white;
+			margin-bottom: 50px;	
+		}
+	}
+}
+.book_briefPage_Review {
+	margin-bottom: 160px;
+}
+.book_briefPage_Review h1 {
+	font-size: 40px;
+	text-align: center;
+	padding-bottom: 40px;
+	color: white;
+}
+.book_commentEachContent_goodBadIcon {
+	padding-left: 10px;
+}
+.book_briefPage_goReview {
+	text-align: center;
+}
+.book_briefPage_goReview a {
+	color: white;
+	text-align: center;
+	background-color: #00BFFF;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 15px 60px;
+	border-radius: 10px;
+}
+.book_briefPage_goReview a:hover {
+	background-color: #0000CD;
+}
+/* 作家一覧ページ ================================ */
+.authorMenuContent {
+	width: 90%;
+	margin: 120px auto;
+}
+.authorMenuContent h1 {
+	color: white;
+	font-size: 40px;
+	text-align: center;
+}
+.authorMenu_writers {
+	width: 100%;
+	margin: 60px auto;
+}
+.authorMenu_eachWriters {
+	float: left;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 80px;
+}
+.authorMenu_eachWriters img {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	transition: 1s all;
+}
+.authorMenu_eachWriters img:hover {
+	box-shadow: 0 0 15px 10px rgba(0, 0, 205, 0.8);
+}
+.authorMenu_eachWriters_name {
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+/* コメント機能関連 ================================ */
+.book_comment {
+	 width: 100%;
+	 margin: 140px auto;
+	 display: none;
+}
+.book_comment2 {
+	width: 100%;
+	margin: 140px auto;
+}
+.book_commentWrapper1 {
+	width: 100%;
+	color: white;
+	margin-bottom: 60px;
+}
+.book_comment_quant i{
+	font-size: 80px;
+}
+.book_comment_quant {
+	float: left;
+	font-size: 40px;
+	font-weight: bold;
+	width: 33%;
+	margin: 0 auto;
+	text-align: center;
+}
+.book_comment_writeBTN {
+	text-align: center;
+	float: left;
+	background-color: #00BFFF;
+	font-size: 30px;
+	font-weight: bold;
+	width: 33%;
+	margin: 0 auto;
+	border-radius: 10px;
+	padding: 20px 0;
+	transition: all 1s;
+	cursor: pointer;
+}
+.book_comment_writeBTN:hover {
+	background-color: #1E90FF;
+}
+.book_comment_delete {
+	text-align: center;
+	float: left;
+	width: 33%;
+	margin: 0 auto;
+}
+.book_comment_delete i {
+	font-size: 80px;
+	transition: all 1s;
+	cursor: pointer;
+}
+.book_comment_delete i:hover {
+	color: #00BFFF;
+}
+.book_comment_delete2 {
+	text-align: center;
+	float: left;
+	width: 33%;
+	margin: 0 auto;
+}
+.book_comment_delete2 i {
+	font-size: 80px;
+	transition: all 1s;
+	color: white;
+	cursor: pointer;
+}
+.book_comment_delete2 i:hover {
+	color: #00BFFF;
+}
+.book_commentEachContent {
+	width: 80%;
+	margin: 80px auto;
+}
+.book_commentEachContent_up {
+	margin-bottom: 10px;
+	color: white;
+}
+.book_commentEachContent_name {
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px 30px;
+}
+.book_commentEachContent_delete {
+	float: right;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+.book_commentEachContent_delete a {
+	color: white;
+	background-color: #00BFFF;
+	padding: 10px 30px;
+	border-radius: 10px;
+}
+.book_commentEachContent_delete a:hover {
+	background-color: #0000CD;
+}
+.book_commentEachContent_down {
+	background-color: white;
+	border: solid 5px #00BFFF;
+	border-radius: 10px;
+}
+.book_commentEachContent_downComent {
+	padding: 10px 10px 20px 10px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #696969;
+}
+.book_commentEachContent_goodBad {
+	padding: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #696969;
+}
+.book_commentEachContent_goodBad i {
+	font-size: 30px; 
+}
+.book_commentEachContent_goodBad i:hover {
+	color: #0000CD;
+}
+.book_commentEachContent_good {
+	float: left;
+	margin-right: 40px;
+	font-size: 18px;
+	font-weight: bold;
+}
+.book_commentEachContent_goodBad button {
+	float: left;
+	background-color: white;
+	border: none;
+	cursor: pointer;
+}
+.color_blue {
+	color: #0000CD;
+}
+.color_brown {
+	color: #696969;
+}
+.book_commentEachContent_bad {
+	float: left;
+	font-size: 18px;
+	font-weight: bold;
+}
+.book_commentPost {
+	width: 100%;
+	margin: 20px auto;
+	display: none;
+}
+.book_commentPost_content {
+	width: 80%;
+	margin: 0 auto;
+}
+.book_commentPost_content textarea {
+	width: 80%;
+	margin: 15px 10%;
+	height: 120px;
+	padding: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #696969;
+	bolder: solid 5px #00BFFF;
+	border-radius: 10px;
+}
+.comment_warningList {
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	width: 80%;
+	margin: 15px auto;
+}
+.comment_warningList p {
+	padding-bottom: 10px;
+}
+.book_commentPost_content input {
+	border: none;
+	text-align: center;
+	width: 50%; 
+	margin: 10px 25%;
+	font-size: 38px;
+	font-weight: bold;
+	color: white;
+	background-color: #00BFFF;
+	padding: 15px;
+	border-radius: 10px;
+	transition: all 1s;
+	cursor: pointer;
+}
+.book_commentPost_content input:hover {
+	background-color: #0000CD;
+}
+
+/* カテゴリー一覧ページ ================================ */
+.categoryAll_content {
+	width: 96%;
+	margin: 120px auto;
+	
+	h1 {
+		color: white;
+		font-size: 36px;
+		padding-bottom: 60px;
+		padding-left: 40px;
+	}
+}
+.categoryAll_box {
+	float: left;
+	width: 33%;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 60px;
+	
+	.categoryAll_box_image {
+		width: 80%;
+		margin: 0 auto;
+		height: 300px;
+		border-radius: 10px;
+		transition: all 1s;
+		background-position: center center;
+		&:hover {
+			box-shadow: 0 0 15px 10px rgba(0, 0, 205, 0.8);
+		}
+		h3 {
+			color: white;
+			font-size: 30px;
+			padding-top: 200px;
+			text-shadow: 0px 1px 10px #000000;
+		}
+	}
+	
+}
+
+/* 各カテゴリーページ ================================ */
+.eachCategoryPage {
+	width: 100%;
+	margin: 120px auto;
+	height: 100%;
+	.eachCategoryPage_content {
+		width: 98%;
+		margin: 40px auto 0 auto;
+		h1 {
+			color: white;
+			text-align: center;
+			font-size: 48px;
+			padding-bottom: 40px;
+			text-shadow: 0px 1px 10px #000000;
+		}
+	}
+}
+.category_othersName {
+	text-align: center;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/* 各カテゴリーページ ================================ */
+.PrivacyPolicy_content {
+	width: 90%;
+	margin: 0 auto;
+	color: white;
+	margin-top: 140px;
+	h1 {
+		text-align: center;
+	}
+	.PrivacyPolicy_content2 {
+		width: 90%;
+		margin: 0 auto;
+		margin-top: 60px;
+		.PrivacyPolicy_box {
+			margin: 60px 0 60px 0;
+			h3 {
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
+
+/* 会社概要ページ ================================ */
+
+.companyInfo_wrapper1 {
+	background-image: url(/companyInfo1.jpeg);
+	width: 100%;
+	height: 400px;
+	margin-top: 90px;
+	background-size: cover;
+	background-position: center center;
+	h1 {
+		text-align: center;
+		color: white;
+		font-size: 50px;
+		text-shadow: 0px 1px 6px #000000; 
+		padding-top: 120px;
+	}
+}
+.companyInfo_wrapper2 {
+	width: 90%;
+	margin: 0 auto;
+	color: white;
+	h2 {
+		text-align: center;
+		padding-top: 60px;
+		font-size: 48px;
+	}
+	.our_service {
+		width: 25%;
+		float: left;
+		margin-top: 40px;
+		margin-bottom: 80px;
+		p {
+			text-align: center; 
+		font-weight: bold;
+		font-size: 20px;
+		}
+		img {
+			width: 200px;
+			height: 120px;
+			display: block;
+			margin: 5px auto;
+			text-align: center;
+		}
+	}
+}	
+.companyInfo_wrapper4 {
+	background-color: #87CEFA;
+	width: 100%;
+	color: white;
+	.companyInfo_wrapper4_content {
+		width: 80%;
+		margin: 0 auto;
+		padding: 30px 0 40px 0;
+		.companyInfo_wrapper4_left {
+			width: 80%;
+			margin: 30px auto 0 auto;
+			font-weight: bold;
+			ul {
+				float: left;
+				margin-left: 40px;
+			}
+			li {
+				padding-top: 10px;
+				font-size: 18px;
+			}
+		}
+	}
+	h3 {
+		text-align: center;
+		font-size: 38px;
+	}
+}
+.topWrapper4 {
+	background-image: url(/Top3.jpeg);
+	width: 100%;
+	height: 635px;
+	background-size: cover;
+	.topWrapper4Content {
+		padding-top: 40px;
+		width: 80%;
+		margin: 0 auto;
+		h2 {
+			text-align: center;
+			color: white;
+			font-size: 36px;
+		}
+		.topWrapper4_both {
+			margin-top: 80px;
+			color: white;
+			h4 {
+				font-size: 20px;
+			}
+			.QLeft {
+				float: left;
+				width: 50%;
+				.QLeft_content {
+					input, textarea {
+						padding: 10px;
+						background: rgba(250, 250, 250, 0.1);
+						color: white;
+						font-size: 16px;
+						width: 85%;
+						border: none;
+					}
+					textarea {
+						height: 150px;
+					}
+				}
+			}
+			.QRight {
+				float: left;
+				width: 50%;
+				.QRight_content {
+					text-align: left;
+					font-size: 16px;
+					width: 90%;
+				}
+			}
+		}
+	}
+}
+.contact_submit {
+	padding: 10px 80px;
+	background-color: rgba(0, 191, 255, 1.0);
+	border-radius: 10px;
+	color: white;
+	margin-top: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+	transition: all 1s;
+	cursor: pointer;
+	&:hover {
+		background-color: #0000CD;
+	}
+}
+.contact-space {
+	height: 20px;
+}
+.contact-space2 {
+	height: 10px;
+}
+.contact-space3 {
+	height: 20px;
+}
+
+/* スマホ用画面 ================================================ */
+@media all and (max-width: 1000px) {
+
+.topwrapper1 {
+	background-image: url(/book_images/book16.jpg);
+	width: 100%;
+	height: 400px;
+	margin-top: 110px;
+	background-size: cover;
+	background-position: center center;
+	color: white;
+}
+.topwrapper1_content {
+	margin-left: 10%;
+	padding-top: 40px;
+}
+.topwrapper1_bookName h1 {
+	font-size: 50px;
+	margin-left: 60px;
+	text-shadow: 0px 1px 6px #000000;
+}
+.topwrapper1_author h3 {
+	font-size: 36px;
+	margin-left: 80px;
+	text-shadow: 0px 1px 6px #000000;
+}
+.topwrapper1_story {
+	padding-top: 10px;
+	font-size: 24px;
+	text-shadow: 0px 1px 6px #000000;
+}
+.topwrapper1_btn {
+	margin-top: 40px;
+	margin-left: 20px;
+}
+.topwrapper1_btn a {
+	text-align: center;
+	color: white; 
+	font-size: 30px;
+	background-color: #696969;
+	padding: 15px 80px;
+	box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.5);	
+	border-radius: 10px;
+	transition: all 1s;
+}
+.read_chapter_content {
+	display: block;
+  	position: fixed;
+	top: 100px;
+  	left: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 1000px;
+	margin: 0px auto 0 auto;
+	background-position: center center;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+	padding-top: 40px;
+	padding-bottom: 150px;
+	overflow: scroll;
+}
+.topwrapper2_row_content_size {
+	width: 33%;
+	float: left;
+}
+.book_briefPage_content {
+	width: 96%; 
+	margin: 0 auto;
+}
+.book_briefPage_content_head p {
+	color: white;
+	text-align: left;
+	padding-top: 40px;
+	font-size: 30px;
+	font-weight: bold;
+}
+.book_briefPage_content_head h1 {
+	text-align: center;
+	padding-top: 60px;
+	font-size: 50px;
+}
+.book_briefPage_startRead a {
+	color: white; 
+	padding: 30px 200px; 
+	font-size: 38px;
+	font-weight: bold;
+	background-color: #00BFFF;
+	border-radius: 10px;
+	box-shadow: 0 0 12px 12px rgba(0, 0, 0, 0.5);
+}
+.book_briefPage_mokuji p {
+	width: 900px;
+	margin: 0 auto 50px auto;
+	color: white;
+	padding: 30px 0;
+	background-color: rgba(0,191,255,0.8);
+	border-radius: 10px;
+	font-size: 30px;
+	font-weight: bold;
+	box-shadow: 0 0 12px 12px rgba(0, 0, 0, 0.5);
+	transition: all 1s;
+}
+.authorMenu_eachWriters {
+	float: left;
+	width: 25%;
+	text-align: center;
+	margin-bottom: 120px;
+}
+.authorMenu_eachWriters img {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	transition: 1s all;
+}
+.authorMenu_eachWriters img:hover {
+	box-shadow: 0 0 15px 10px rgba(0, 0, 205, 0.8);
+}
+.authorMenu_eachWriters_name {
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 15px;
+}
+.authorMenuContent {
+	width: 90%;
+	margin: 140px auto;
+}
+.authorMenuContent h1 {
+	color: white;
+	font-size: 50px;
+	text-align: center;
+}
+.zoom-black h3 {
+	text-align: center;
+	font-size: 30px; 
+	padding-top: 15px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.zoom-black h5 {
+	text-align: center;
+	font-size: 20px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.zoom-black {
+	background-color: rgba(0,0,0,0.6);
+	width: 100%;  
+	margin-top: 85.5%;
+}
+.book_briefPage_goReview a {
+	color: white;
+	text-align: center;
+	background-color: #00BFFF;
+	font-size: 30px;
+	font-weight: bold;
+	padding: 20px 100px;
+	border-radius: 10px;
+}
+.book_comment_quant i{
+	font-size: 100px;
+}
+.book_comment_quant {
+	float: left;
+	font-size: 50px;
+	font-weight: bold;
+	width: 33%;
+	margin: 0 auto;
+	text-align: center;
+}
+.book_comment_writeBTN {
+	text-align: center;
+	float: left;
+	background-color: #00BFFF;
+	font-size: 38px;
+	font-weight: bold;
+	width: 33%;
+	margin: 0 auto;
+	border-radius: 10px;
+	padding: 20px 0;
+	transition: all 1s;
+	cursor: pointer;
+}
+.book_comment_delete {
+	text-align: center;
+	float: left;
+	width: 33%;
+	margin: 0 auto;
+}
+.book_comment_delete i {
+	font-size: 100px;
+	transition: all 1s;
+	cursor: pointer;
+}
+.book_comment_delete2 {
+	text-align: center;
+	float: left;
+	width: 33%;
+	margin: 0 auto;
+}
+.book_comment_delete2 i {
+	font-size: 100px;
+	transition: all 1s;
+	cursor: pointer;
+}
+.book_commentEachContent {
+	width: 90%;
+	margin: 80px auto;
+}
+.book_commentEachContent_up {
+	margin-bottom: 10px;
+	color: white;
+}
+.book_commentEachContent_name {
+	float: left;
+	font-size: 36px;
+	font-weight: bold;
+	padding: 10px 30px;
+}
+.book_commentEachContent_delete {
+	float: right;
+	font-size: 30px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+.book_commentEachContent_delete a {
+	color: white;
+	background-color: #00BFFF;
+	padding: 10px 40px;
+	border-radius: 10px;
+}
+.book_commentEachContent_down {
+	background-color: white;
+	border: solid 8px #00BFFF;
+	border-radius: 10px;
+}
+.book_commentEachContent_downComent {
+	padding: 10px 10px 20px 10px;
+	font-size: 28px;
+	font-weight: bold;
+	color: #696969;
+}
+.book_commentEachContent_goodBad {
+	padding: 10px;
+	font-size: 40px;
+	font-weight: bold;
+	color: #696969;
+}
+.book_commentEachContent_goodBad i {
+	font-size: 40px; 
+}
+.book_commentEachContent_good {
+	float: left;
+	margin-right: 60px;
+	font-size: 24px;
+	font-weight: bold;
+}
+.book_commentEachContent_bad {
+	float: left;
+	font-size: 24px;
+	font-weight: bold;
+}
+.book_commentPost_content {
+	width: 90%;
+	margin: 0 auto;
+}
+.book_commentPost_content textarea {
+	width: 90%;
+	margin: 15px 5%;
+	height: 220px;
+	padding: 15px;
+	font-size: 30px;
+	font-weight: bold;
+	color: #696969;
+	bolder: solid 5px #00BFFF;
+	border-radius: 10px;
+}
+.comment_warningList {
+	color: white;
+	font-size: 24px;
+	font-weight: bold;
+	width: 80%;
+	margin: 20px auto;
+}
+.comment_warningList p {
+	padding-bottom: 20px;
+}
+.book_commentPost_content input {
+	border: none;
+	text-align: center;
+	width: 60%; 
+	margin: 10px 20%;
+	font-size: 40px;
+	font-weight: bold;
+	color: white;
+	background-color: #00BFFF;
+	padding: 15px;
+	border-radius: 10px;
+	transition: all 1s;
+	cursor: pointer;
+}
+.categoryAll_content {
+	width: 98%;
+	margin: 140px auto;
+	h1 {
+		color: white;
+		font-size: 46px;
+		padding-bottom: 60px;
+		padding-left: 40px;
+	}
+}
+.categoryAll_box {
+	float: left;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 60px;
+	
+	.categoryAll_box_image {
+		width: 80%;
+		margin: 0 auto;
+		height: 360px;
+		border-radius: 10px;
+		transition: all 1s;
+		background-position: center center;
+		&:hover {
+			box-shadow: 0 0 15px 10px rgba(0, 0, 205, 0.8);
+		}
+		h3 {
+			color: white;
+			font-size: 40px;
+			padding-top: 240px;
+			text-shadow: 0px 1px 10px #000000;
+		}
+	}
+	
+}
+.eachCategoryPage {
+	width: 100%;
+	margin: 120px auto;
+	height: 100%;
+	.eachCategoryPage_content {
+		width: 98%;
+		margin: 40px auto 0 auto;
+		h1 {
+			color: white;
+			text-align: center;
+			font-size: 60px;
+			padding-bottom: 60px;
+			text-shadow: 0px 1px 10px #000000;
+		}
+	}
+}
+.PrivacyPolicy_content {
+	width: 96%;
+	margin: 0 auto;
+	color: white;
+	margin-top: 140px;
+	h1 {
+		text-align: center;
+		font-size: 40px;
+	}
+	.PrivacyPolicy_content2 {
+		width: 100%;
+		margin: 0 auto;
+		margin-top: 60px;
+		font-size: 20px;
+		.PrivacyPolicy_box {
+			margin: 60px 0 60px 0;
+			h3 {
+				margin-bottom: 20px;
+				font-size: 30px;
+			}
+		}
+	}
+}
+.companyInfo_wrapper1 {
+	background-image: url(/companyInfo1.jpeg);
+	width: 100%;
+	height: 600px;
+	margin-top: 110px;
+	background-size: cover;
+	background-position: center center;
+	h1 {
+		text-align: center;
+		color: white;
+		font-size: 60px;
+		text-shadow: 0px 1px 6px #000000; 
+		padding-top: 220px;
+	}
+}
+.companyInfo_wrapper2 {
+	width: 96%;
+	margin: 0 auto;
+	color: white;
+	h2 {
+		text-align: center;
+		padding-top: 60px;
+		padding-bottom: 100px;
+		font-size: 60px;
+	}
+	.our_service {
+		width: 100%;
+		float: left;
+		margin-top: 40px;
+		margin-bottom: 80px;
+		p {
+			text-align: center; 
+		font-weight: bold;
+		font-size: 20px;
+		}
+		img {
+			width: 300px;
+			height: 180px;
+			display: block;
+			margin: 5px auto;
+			text-align: center;
+		}
+	}
+}	
+.companyInfo_wrapper4 {
+	background-color: #87CEFA;
+	width: 100%;
+	color: white;
+	.companyInfo_wrapper4_content {
+		width: 96%;
+		margin: 0 auto;
+		padding: 30px 0 40px 0;
+		.companyInfo_wrapper4_left {
+			width: 80%;
+			margin: 30px auto 0 auto;
+			font-weight: bold;
+			ul {
+				float: left;
+				margin-left: 40px;
+			}
+			li {
+				padding-top: 20px;
+				font-size: 24px;
+			}
+		}
+	}
+	h3 {
+		text-align: center;
+		font-size: 50px;
+	}
+}
+.topWrapper4 {
+	background-image: url(/Top3.jpeg);
+	width: 100%;
+	height: 880px;
+	background-size: cover;
+	.topWrapper4Content {
+		padding-top: 60px;
+		width: 96%;
+		margin: 0 auto;
+		h2 {
+			text-align: center;
+			color: white;
+			font-size: 50px;
+		}
+		.topWrapper4_both {
+			margin-top: 100px;
+			color: white;
+			h4 {
+				font-size: 28px;
+			}
+			.QLeft {
+				float: left;
+				width: 50%;
+				.QLeft_content {
+					input, textarea {
+						padding: 15px;
+						background: rgba(250, 250, 250, 0.1);
+						color: white;
+						font-size: 24px;
+						width: 85%;
+						border: none;
+					}
+					textarea {
+						height: 250px;
+					}
+				}
+			}
+			.QRight {
+				float: left;
+				width: 50%;
+				.QRight_content {
+					text-align: left;
+					font-size: 22px;
+					width: 98%;
+				}
+			}
+		}
+	}
+}
+.contact_submit {
+	padding: 10px 120px;
+	background-color: rgba(0, 191, 255, 1.0);
+	border-radius: 10px;
+	color: white;
+	margin-top: 40px;
+	font-size: 24px;
+	font-weight: bold;
+	border: none;
+	transition: all 1s;
+	&:hover {
+		background-color: #0000CD;
+	}
+}
+.reccomment_to_regist {
+	position: fixed;
+	top: 115px;
+	left: 0px;
+	width: 100%;
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	padding: 15px 60px;
+	text-align: center;
+	background-color: #1E90FF;
+	transition: all 1s;
+	&:hover {
+		background-color: #0000CD;
+	}
+}
+.writingBookPage_reading_all {
+	margin-top: 120px;
+	padding-bottom: 120px;
+}
+.read_chapter_footer_content {
+	width: 100%;
+	background-color: #808080;
+	z-index: 10;
+	position: fixed;
+    bottom: 0%;
+    width: 100%;
+	height: 150px;
+}
+.footer_float {
+	float: left;
+	width: 30%;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	height: 120px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.92);
+	border-radius: 10px;
+	box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.5);
+	transition: all 1s;
+}
+.footer_float h5 {
+	font-size: 36px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.footer_float p {
+	padding-top: 10px;
+	font-size: 26px;
+}
+.footer_previewStory {
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+}
+.footer_mokuji, .footer_nextStory {
+	margin-right: 2.5%;
+}
+.footer_mokuji h5 {
+	padding-top: 30px;
+}
+.author_introduceContent {
+	width: 98%;
+	margin: 140px auto; 
+	.author_intCenter {
+		text-align: center;
+	}
+	.author_image img {
+		width: 360px;
+		height: 360px; 
+		border-radius: 50%;
+	}
+	.author_name {
+		font-size: 30px;
+		padding: 20px 0;
+		color: white;
+	}
+	.author_description {
+		width: 98%;
+		margin: 20px auto;
+		font-size: 24px;
+		font-weight: bold;
+		color: white;
+	}
+	.author_share {
+		text-align: center;
+		margin-top: 60px;
+		a {
+			margin: 0 60px;
+			color: white;
+			&:hover {
+				color: #00BFFF;
+			}
+		}
+	}
+	.author_working {
+		width: 100%;
+		margin: 60px auto;
+		h2 {
+			color: white;
+			margin-bottom: 50px;
+			font-size: 36px;	
+		}
+	}
+}
+.topwrapper2_authors {
+	width: 100%;
+	margin: 0 auto 60px auto;
+	.topwrapper2_authors_title {
+		font-size: 24px; 
+		font-weight: bold;
+		padding-bottom: 30px;
+		color: white;
+		transition: all 1s;
+		&:hover {
+			.author_checkAll {
+				display: inline-block;
+			}
+		}
+		.author_checkAll {
+			font-size: 18px;
+			font-weight: bold;
+			display: inline-block;
+		}
+	}
+	.topwrapper2_authorsSize {
+		width: 30%;
+		display: inline-block;
+		.topwrapper2_authors_contents {
+			text-align: center;
+			.topwrapper2_authors_img {
+				img {
+					height: 280px;
+					width: 280px;
+					border-radius: 50%;
+					transition: all 1s;
+					&:hover {
+						box-shadow: 0 0 15px 10px rgba(0, 0, 205, 0.8);
+					}
+				}
+			}
+			.topwrapper2_authors_name {
+				padding-top: 15px;
+				font-size: 28px;
+				font-weight: bold;
+				color: white;
+				display: inline-block;
+				white-space: nowrap;
+			}
+		}
+	}
+}
+
+}

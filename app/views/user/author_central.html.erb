@@ -1,0 +1,31 @@
+<div class="author_centrallPage">
+	<div class="author_centrallPage_content">
+		<div class="author_centrallPage_workingBook">
+			<% @book.each do |book| %>
+			<a href="<%= "/users/#{@user.id}/#{book.id}/book_table_author" %>">
+			<div class="author_centrallPage_bookContent" style="background-image: url(/book_images/<%= book.book_image %>)">
+				<div class="author_centrallPage_book_black">
+					<h3><%=book.book_title%></h3>
+					<%if book.finish == 2 %>
+						<h4 style="color: red">公開中</h4>
+					<%else%>
+						<h4 style="color: #0000CD">執筆中</h4>
+					<%end%>
+				</div>
+			</div>
+			</a>
+			<%end%>
+			<div class="clear"></div>
+		</div>
+		<a href="<%="/users/#{@user.id}/new_book_register"%>" alt="新しい本をかく">
+		<div class="author_centrallPage_newBook">
+			<div class="author_centrallPage_newBook_hover">
+				<h2>新しい本を書く</h2>
+			</div>
+			<div class="author_centrallPage_newBook_normal">
+				<h2>新しい本を書く</h2>
+			</div>
+		</div>
+		</a>
+	</div>
+</div>

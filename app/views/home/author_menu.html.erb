@@ -1,0 +1,21 @@
+<head>
+	<title>登録作家一覧｜無料小説投稿サイトBookChat</title>
+</head>
+<div class="authorMenuPage">
+	<div class="authorMenuContent">
+		<h1>作家一覧</h1>
+		<div class="authorMenu_writers">
+			<% @users.each do |user| %>
+			<a href="/<%= user.id %>/author_introduce">
+			<div class="authorMenu_eachWriters">
+				<img src ="<%="/user_images/#{user.user_image}"%>" alt = "">
+				<div class="authorMenu_eachWriters_name">
+					<%= user.user_name %>
+				</div>
+			</div>
+			</a>
+			<%end%>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>

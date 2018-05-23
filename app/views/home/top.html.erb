@@ -1,0 +1,106 @@
+<head>
+	<title>小説の名作をチャット形式で読める！無料小説投稿サイトBookChat</title>
+	<meta name="description" content="好きな作品を無料で好きなだけ読める！作家登録することで気軽に簡単に作品を投稿することも可能。過去の青空文庫の名作もチャット形式で復活！">
+</head>
+<div class="topPage">
+	<div class="topwrapper1">
+	    <div class="topwrapper1_content">
+			<div class="topwrapper1_bookName">
+				<h1>女生徒</h1>
+			</div>
+			<div class="topwrapper1_author">
+				<h3>太宰治</h3>
+			</div>
+			<div class="topwrapper1_story">
+				「女生徒」（じょせいと）は、太宰治の短編小説。<br>
+				日記を題材に、14歳の女生徒が朝起床してから<br>
+				夜就寝するまでの一日を主人公の独白体で綴っている。<br>
+			</div>
+			<div class="topwrapper1_btn">
+				<%= link_to("読み始める","/16/book_brief")%>
+			</div>
+		</div>
+	</div>
+	<div class="topwrapper2">
+		<div class="topwrapper2_content">
+			<div class="topwrapper2_authors">
+				<a href="/author_menu">
+				<div class="topwrapper2_authors_title">
+					作家一覧　<span class="author_checkAll">すべて表示 ▶︎</span>
+				</div>
+				</a>
+				<div class="topwrapper2_authorsRow">
+				<% @users.each do |user| %>
+				<div class="topwrapper2_authorsSize">
+					<a href="/<%= user.id %>/author_introduce">
+					<div class="topwrapper2_authors_contents">
+						<div class="topwrapper2_authors_img">
+							<img src ="<%="/user_images/#{user.user_image}"%>" alt = "">
+						</div>
+						<div class="topwrapper2_authors_name">
+							<%= user.user_name.truncate(10) %>
+						</div>
+					</div>
+					</a>
+				</div>
+				<%end%>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="topwrapper2_row">
+				<div class="topwrapper2_row_name">
+					新着作品
+				</div>
+				<div class="topwrapper2_row_working">
+					<% @books.each do |book| %>
+					<a href="/<%= book.id %>/book_brief">
+						<div class="topwrapper2_row_content_size">
+						  <div class="topwrapper2_row_content" style="background-image: url(/book_images/<%=book.book_image%>)">
+							<div class="zoom-check">
+								<div class="zoom-black">
+									<h3><%= book.book_title %></h3>
+									<h5><%= book.book_user.user_name %></h5>
+								</div>
+								<div class="zoom-black-hover">
+									<h3><%= book.book_title %></h3>
+									<h5><%= book.book_user.user_name %>の作品</h5>
+									<% if book.book_user.open_unopen == "1" %>
+										<p class="aozora_p">青空文庫</p>
+									<%end%>
+									<div class="zoom-black_hide">
+										<%= book.book_description.truncate(55) %>
+									</div>
+									<% if book.book_reviewAll.present? %>
+									<% percent = book.book_reviewAll.sum(:point) / book.book_reviewAll.count %>
+									<div class="topwrapper2_row_contentReview">
+										<div class="topReview_star">
+											<% if percent >= 4 %>
+												★★★★★
+											<% elsif percent >=3 && percent < 4 %>
+												★★★★☆
+											<% elsif percent >=2 && percent < 3 %>
+												★★★☆☆
+											<% elsif percent >1 && percent < 2 %>
+												★★☆☆☆
+											<% elsif percent == 1 %>
+												★☆☆☆☆
+											<%end%>
+										</div>
+										<div class="topReview_quant">
+											<%= book.book_reviewAll.count %>件のレビュー 
+										</div>
+										<div class="clear"></div>
+									</div>
+									<%end%>
+								</div>
+							</div>
+						  </div>
+						</div>
+					</a>
+					<%end%>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

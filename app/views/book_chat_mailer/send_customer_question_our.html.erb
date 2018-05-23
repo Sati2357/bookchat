@@ -1,0 +1,30 @@
+<html lang="ja">
+<head>
+  <meta content="text/html; charset=UTF-8" />
+  <style type="text/css">
+   p { 
+   		fontweight: bold;
+		font-size: 16px;
+   	  }
+  </style>
+</head>
+<body>
+<p>お客様</p><br>
+ 
+<p>この度はBookChatへのお問い合わせありがとうございます。</p><br>
+ 
+<p>担当者より順次お返事致します。</p><br>
+ 
+<p>メールアドレス： <%= @email %></p>
+<p>件名: <%= @subject %></p>
+<p>お問い合わせ内容： </p>
+<p><%= @message %></p><br>
+<p>__________________________________________</p>
+<p>
+このメールは送信専用となります。<br>
+BookChat URL： https://mee-coo.com<br>
+今後ともBookChatをよろしくお願いいたします<br>
+</p>
+<p>__________________________________________</p>
+</body>
+</html>

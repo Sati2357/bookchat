@@ -1,0 +1,104 @@
+<head>
+	<title>会社情報|チャット型小説投稿サイトBookChat</title>
+</head>
+<div class="companyInfoPage">
+	<div class="companyInfo_wrapper1">
+		<h1>
+			時に作家となり、時に読者になる<br>
+			そんな世界を創造しよう
+		</h1>
+	</div>
+	<div class="companyInfo_wrapper2">
+		<h2>提供サービス</h2>
+		<div class="our_service our_service1">
+			<%= link_to image_tag('/KikiMap_logo.png', { :border => '0', :alt => 'KikiMap'}), "https://medicihiroba.com/kikimap/", :target => "_blank" %>
+			<p>海外治安情報<br>配信サービス</p>
+		</div>
+		<div class="our_service our_service2">
+			<%= link_to image_tag('/MeeCoo-Logo.png', { :border => '0', :alt => 'MeeCoo'}), "https://mee-coo.com", :target => "_blank" %>
+			<p>オンライン講師<br>紹介サービス</p>
+		</div>
+		<div class="our_service our_service2">
+			<%= link_to image_tag('/Medici_logo.png', { :border => '0', :alt => 'Medici 英会話個人レッスン'}), "https://medicihiroba.com", :target => "_blank" %>
+			<p>家庭教師・語学講師<br>紹介サービス</p>
+		</div>
+		<div class="our_service our_service2">
+			<%= link_to image_tag('/BookChat_logo.png', { :border => '0', :alt => 'BookChat チャット型小説'}), "/", :target => "_blank" %>
+			<p>チャット型小説<br>投稿サービス</p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="companyInfo_wrapper4">
+		<div class="companyInfo_wrapper4_content">
+			<h3>会社概要</h3>
+			<div class="companyInfo_wrapper4_left">
+				<ul>
+					<li>会社名</li>
+					<li>代表取締役</li>
+					<li>所在地</li>
+					<li>設立年月</li>
+					<li>事業内容</li>
+					<li>連絡先</li>
+				</ul>
+				<ul>
+					<li>Medici合同会社</li>
+					<li>山本　啓太</li>
+					<li>東京都杉並区和泉1-2-4　ペルテ代田橋</li>
+					<li>2015年　2月</li>
+					<li>Webサービスの企画、制作、運営</li>
+					<li>info@medicihiroba.com</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			<div class="companyInfo_wrapper4_right">
+				
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="topWrapper4" id="top_customerQuestion"><!--お問い合わせ -->
+	<div class="topWrapper4Content">
+		<h2>お問い合わせ</h2>
+		<div class="topWrapper4_both">
+			<div class="QLeft">
+			<%= form_tag("/question") do %>
+			  <div class="QLeft_content">
+				<h4>メッセージを送る</h4>
+				<div class="contact-space"></div>
+				<input type="text" name="contact_email" placeholder="Email" class="contact-email">
+				<div class="contact-space"></div>
+				<input type="text" name="contact_subject" placeholder="件名" class="contact-subject">
+				<div class="contact-space"></div>
+				<textarea name="contact_msg" placeholder="メッセージ"></textarea>
+				<div class="contact-space"></div>
+			  </div>
+			  <input type="submit" class="contact_submit" value="送信">
+			 </div>
+			<%end%>
+			<div class="QRight">
+				<h4>Mediciの取り組み</h4>
+				<div class="contact-space"></div>
+				<div class="QRight_content">
+					Mediciでは頂いたご意見等を基に、<br>
+					日々サービスの向上に取り組んでおります。<br>
+					弊社のサービスに対する不明点やご要望等が<br>
+					ございましたら、どうぞお気軽にお問い合わせください。
+				</div>
+				<div class="contact-space"></div>
+				<div class="contact-space"></div>
+				<div class="QRight_address">
+					<h4>Address</h4>
+					<div class="contact-space2"></div>
+					<div class="QRight_address_address">
+						<i class="fa fa-map-marker" aria-hidden="true"></i>&ensp;東京都杉並区和泉1-2-4　ペルテ代田橋
+					</div>
+					<div class="contact-space2"></div>
+					<div class="QRight_address_phone">
+						<i class="fa fa-envelope" aria-hidden="true"></i>&ensp;info@medicihiroba.com
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>

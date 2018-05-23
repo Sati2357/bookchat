@@ -1,0 +1,882 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 登録ページ ================================ */
+.authorRegister_content {
+	text-align: center; 
+	color: white;
+	margin-top: 140px;
+}
+.authorRegister_content h1 {
+	font-size: 40px;
+}
+.authorRegister_content h5 {
+	padding-top: 10px;
+	font-size: 24px;
+}
+.form-error {
+	padding-top: 10px;
+	font-size: 20px;
+	color: red;
+	text-align: center;
+}
+.loginInfo_form {
+	background-color: #696969;
+	border-radius: 10px; 
+	width: 80%;
+	margin: 20px auto;
+}
+.loginInfo_form_content {
+	width: 80%;
+	margin: 60px auto;
+}
+.loginInfo_form_content h3 {
+	color: white; 
+	text-align: center;
+	padding: 20px 0;
+	font-size: 30px;
+}
+.loginInfo_form_box {
+	margin-bottom: 50px;
+}
+.loginInfo_form_koumoku {
+	color: white;
+	font-size: 20px;
+	font-weight: bold; 
+}
+.non_dis {
+	font-size: 14px;
+}
+.loginInfo_form_input {
+	margin-top: 10px;
+}
+.loginInfo_form_input input {
+	width: 80%; 
+	font-size: 18px; 
+	font-weight: bold;
+	color: #696969;
+	padding: 10px;
+	border-radius: 10px; 
+}
+.userInfo_form {
+	background-color: #696969;
+	border-radius: 10px; 
+	width: 80%;
+	margin: 20px auto;
+}
+.user_info_radio {
+	display: inline-block;
+	text-align: left;
+	float: left;
+	color: white;
+	font-size: 20px;
+}
+.user_info_radio input {
+	margin-left: 60px;
+}
+.gender_form_input {
+	margin-top: 10px;
+}
+.gender_form_input input { 
+	font-size: 18px; 
+	font-weight: bold;
+	color: #696969;
+	padding: 10px;
+	border-radius: 10px; 
+}
+.loginInfo_form_input textarea {
+	width: 80%; 
+	height: 150px;
+	font-size: 18px; 
+	font-weight: bold;
+	color: #696969;
+	padding: 10px;
+	border-radius: 10px; 
+}
+.newBook_form_input {
+	margin-top: 10px;
+}
+.newBook_form_input textarea {
+	width: 80%; 
+	height: 140px;
+	font-size: 18px; 
+	font-weight: bold;
+	color: #696969;
+	padding: 10px;
+	border-radius: 10px; 
+}
+.register_submit {
+	background-color: #696969;
+	border-radius: 10px; 
+	text-align: center;
+	width: 50%;
+	margin: 40px auto;
+}
+.register_submit p {
+	color: white;  
+	padding: 20px 0;
+	font-size: 20px;
+}
+.register_submit a {
+	color: white;
+}
+.register_submit_a input {
+	display: inline-block;
+	color: white; 
+	background-color: #00BFFF;
+	font-size: 22px;
+	font-weight: bold;
+	transition: all 1s; 
+	padding: 15px 60px;
+	border: none; 
+	border-radius: 10px; 
+	box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+}
+.register_submit_a input:hover {
+	background-color: #0000CD;
+}
+.login_form_content {
+	margin-top: 140px;
+}
+.login_form_content h1 {
+	color: white;
+	text-align: center; 
+	font-size: 36px;
+}
+.login_form_content h3 {
+	color: white;
+	text-align: center; 
+	font-size: 20px;
+}
+.login_form_register {
+	width: 30%;
+	margin: 20px auto 5px auto;
+	text-align: center; 
+	font-size: 32px;
+	font-weight: bold;
+	padding: 10px;
+	background-color: #1E90FF;
+	color: white;
+	border-radius: 10px;
+	transition: all 1s;
+}
+.login_form_register:hover {
+	background-color:#0000CD;
+}
+.login_form_box {
+	width: 50%;
+	margin: 40px auto;
+	border-radius: 10px;
+	background-color: #696969;
+	.login_form_category {
+		width: 70%;
+		margin: 20px auto; 
+		.login_form_what {
+			padding-top: 20px; 
+			padding-bottom: 10px;
+			color: white; 
+			font-size: 20px; 
+			font-weight: bold;
+		}
+	}
+	.login_formForgetPassword {
+		text-align: center;
+		color: white;
+		font-size: 18px;
+		font-weight: bold;
+		a {
+			color: white;
+			&:hover {
+				color: #0000CD;
+			}
+		}
+	}
+	.logIn_submitBtn  {
+		float: right;
+		margin: 30px 22% 20px 0;
+		input {
+			font-size: 20px;
+			font-weight: bold;
+			background-color: #00BFFF;
+			color: white;
+			border: none; 
+			padding: 10px 60px;
+			box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.4);
+			border-radius: 10px;
+			transition: all 1s;
+			cursor: pointer;
+			&:hover {
+				background-color: #0000CD;
+			}
+		}
+	}
+}
+.login_form_input input {
+	width: 90%;
+	font-size: 20px; 
+	color: #696969;
+	padding: 5px;
+	border-radius: 10px;
+}
+.loginInfo_form_category {
+	width: 90%;
+	margin: 20px auto;
+	color: white;
+	font-size: 20px; 
+	font-weight: bold;
+}
+.loginInfo_form_category input {
+	font-size: 20px;
+}
+.loginInfo_form_category_left {
+	width: 50%;
+	float: left;
+}
+.loginInfo_form_category_right {
+	width: 50%;
+	float: left;
+}
+.categorySelect {
+	height: 40px;
+}
+.input_category_others {
+	width: 80%;
+	margin: 20px auto;
+	padding-bottom: 20px;
+}
+.input_category_others input {
+	width: 100%;
+	font-size: 20px; 
+	font-weight: bold;
+	color: #696969;
+	padding: 5px;
+	border-radius: 10px;
+}
+/* 著者セントラルページ ================================ */
+.author_centrallPage_newBook {
+	background-image: url(/author_newBook.jpg);
+	background-size: cover;
+	background-position: center center;
+	width: 100%; 
+	height: 200px;
+	position: fixed;
+  	bottom: 0;
+}
+.author_centrallPage_newBook_normal  {
+	width: 100%; 
+	height: 100%;
+	background-color: rgba(30, 144, 255, 0.0);
+}
+.author_centrallPage_newBook_hover {
+	width: 100%; 
+	height: 100%;
+	background-color: rgba(30, 144, 255, 0.5);
+	display: none;
+}
+.author_centrallPage_newBook h2 {
+	text-align: center;
+	color: white; 
+	text-shadow: 5px 5px 10px #000000;
+	font-size: 60px; 
+	padding-top: 60px;
+}
+.author_centrallPage_workingBook {
+	width: 90%;
+	margin: 140px auto 0 auto;
+	padding-bottom: 200px;
+}
+.author_centrallPage_bookContent {
+	background-position: center center;
+	background-size: cover;
+	width: 200px; 
+	height: 240px;
+	white-space: normal;
+	text-align: center; 
+	text-shadow: 0px 5px 10px #000000;
+	float: left; 
+	margin-right: 50px;
+	margin-bottom: 40px;
+	transition: all 1s;
+	border-radius: 10px;
+}
+.author_centrallPage_bookContent:hover {
+	box-shadow: 0 0 15px 10px rgba(0, 0, 205, 0.8);
+}
+.author_centrallPage_bookContent h3 {
+	padding-top: 170px;
+	color: white;
+	white-space: nowrap;
+	overflow: hidden;
+}
+/* 新規本登録 ================================ */
+.newBook_image_register {
+	background-color: #696969;
+	border-radius: 10px; 
+	width: 60%;
+	margin: 40px auto;
+}
+.newBook_image_register h3 {
+	color: white;
+	text-align: center; 
+	padding-top: 15px;
+	font-size: 30px;
+}
+.newBook_image_register h5 {
+	color: white;
+	text-align: center; 
+	padding-top: 5px;
+	padding-bottom: 20px;
+	font-size: 20px;
+}
+.newBook_image_register_image {
+ 	display: block;
+	margin-left: 40%;
+	padding-top: 30px;
+	padding-bottom: 60px;
+ }
+.newBook_image_register_image input {
+ 	color: white; 
+	font-weight: bold;
+ }
+.newBook_image_register_nowImage {
+ 	text-align: center;
+	padding-bottom: 40px;
+ }
+.newBook_image_register_nowImage img {
+	height: 200px; 
+	width: 150px; 
+	border-radius: 10px;
+}
+.firstChapterPage_content h1 {
+	color: white;
+	text-align: center;
+	padding-top: 160px;
+}
+.firstChapterPage_content h3 {
+	color: white;
+	text-align: center;
+	padding-top: 20px;
+	
+}
+.book_chapter_class {
+	width: 40%; 
+	font-size: 18px;
+	margin: 80px 0 60px 30%; 
+	font-weight: bold;
+	color: #696969;
+	padding: 10px;
+	border-radius: 10px;
+}
+/* 目次ページ ================================ */
+.book_table_author_head {
+	color: white;
+	text-align: center;
+	margin-top: 140px;
+	h1 {
+		font-size: 50px;
+		padding-bottom: 20px;
+	}
+	a {
+		color: white;
+		font-size: 20px;
+		font-weight: bold;
+		background-color: #00BFFF;
+		padding: 10px 30px;
+		margin: 0 30px 0 0px;
+		border-radius: 10px;
+		&:hover {
+			background-color: #0000CD;
+		}
+	}
+	p {
+		font-size: 24px;
+		font-weight: bold;
+		padding-top: 30px;
+	}
+}
+.book_table_chapterBox {
+	width: 80%;
+	margin: 40px auto; 
+	background-color: #696969;
+	border-radius: 10px;
+}
+.book_table_chapterBox a {
+	background-color: #00BFFF; 
+	color: white;
+	font-weight: bold;
+	border-radius: 10px; 
+	box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.4);
+	transition: all 1s;
+	font-size: 26px;
+}
+.book_table_chapterBox a:hover {
+	background-color: #0000CD;
+}
+.book_table_chapterBox_number {
+	float: left;
+	width: 20%;
+	height: 100%;
+	color: white; 
+	font-size: 80px;
+	margin: 0 auto;
+	line-height: 170px;
+	padding-left: 5%;
+}
+.book_table_chapterBox_right {
+	float: left;
+	width: 80%;
+	margin: 0 auto;
+}
+.book_table_chapterBox_edit {
+	float: left;
+	width: 100%;
+	margin-top: 30px;
+}
+.book_table_chapterBox_edit1 {
+	float: left;
+}
+.book_table_chapterBox_edit1 a{
+	padding: 10px 60px;
+}
+.book_table_chapterBox_edit2 {
+	float: left;
+	margin-left: 15%;
+}
+.book_table_chapterBox_edit2 a{
+	padding: 10px 105px;
+}
+.book_table_chapterBox_title {
+	float: left;
+	width: 100%;
+	margin: 30px 0 20px 0;
+}
+.book_table_chapterBox_title1 {
+	float: left;
+}
+.book_table_chapterBox_title1 input {
+	font-size: 26px; 
+	padding: 10px;
+	font-weight: bold; 
+	width: 305px;
+	color: #696969;
+	border-radius: 10px;
+}
+.book_table_chapterBox_title2 {
+	float: left;
+	margin-left: 15%;
+	margin-top: 5px;
+}
+.book_table_chapterBox_title2 input {
+	border: none;
+	padding: 10px 48px;
+	background-color: #00BFFF; 
+	color: white;
+	font-weight: bold;
+	border-radius: 10px; 
+	box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.4);
+	transition: all 1s;
+	font-size: 26px;
+	cursor: pointer;
+}
+.book_table_chapterBox_title2 input:hover {
+	background-color: #0000CD;
+}
+
+/* 読者セントラルページ ================================ */
+.reader_centralContent {
+	width: 100%;
+	margin: 140px auto;
+}
+.reader_centralClickSpace {
+	text-align: center;
+	float: left;
+	width: 25%;
+	margin: 0 auto;
+}
+.reader_centralClick {
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px 0;
+	color: #696969;
+	background-color: white;
+	text-align: center;
+	font-size: 26px;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 10px;
+	transition: all 1s;
+}
+.reader_centralClick:hover {
+	color: white;
+	background-color: #1E90FF;
+}
+.reader_centralClick.active {
+	color: white;
+	background-color: #1E90FF;
+}
+.reader_centralReadingBook {
+	width: 96%;
+	margin: 60px auto;
+}
+.reader_centralFinishReading {
+	width: 96%;
+	margin: 60px auto;
+}
+.click_finishRead {
+	display: none;
+}
+.click_follow {
+	display: none;
+}
+.click_comment {
+	display: none;
+}
+.book_commentEachContent_bookInfo {
+	float: left;
+	text-align: center;
+	width: 350px;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	background-color: #00BFFF;
+	padding: 10px 20px;
+	margin: 0 0 10px 80px;
+	border-radius: 10px;
+	transition: all 1s;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.book_commentEachContent_bookInfo:hover {
+	background-color: #0000CD;
+}
+
+/* コメントシェアページ ================================ */
+.share_content {
+	margin-top: 140px;
+}
+.share_content h1 {
+	color: white;
+	text-align: center;
+	font-size: 48px;
+}
+.share_content h3 {
+	color: white;
+	text-align: center;
+	font-size: 30px;
+}
+.commentShare_shareBTN {
+	width: 50%;
+	margin: 80px 25%;
+}
+.commentShare_shareBtnIcon {
+	float: left;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	color: #1E90FF;
+	transition: all 1s;
+	font-size: 28px;
+}
+.commentShare_shareBtnIcon:hover {
+	color: #0000CD;
+}
+.back_toRead {
+	width: 80%;
+	margin: 100px auto;
+}
+.back_toReadBTN {
+	text-align: center;
+	float: left;
+	padding: 15px 0;
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	background-color: #1E90FF;
+	width: 40%;
+	margin: 0 5%;
+	border-radius: 10px;
+	transition: all 1s;
+}
+.back_toReadBTN:hover {
+	background-color: #0000CD;
+}
+/* 管理画面作成 ================================ */
+.MangerPage_content {
+	margin: 140px 0;
+}
+.MangerPage_content h1 {
+	color: white;
+	text-align: center;
+	padding-bottom: 60px;
+}
+.ManagerTable_content {
+	width: 96%;
+	margin: 0 auto;
+	color: white;
+}
+.MNG_btn {
+	padding: 10px 0;
+}
+.MNG_btn a {
+	background-color: #00BFFF;
+	padding: 5px 15px;
+	border-radius: 10px;
+	color: white;
+}
+.MNG_btn a:hover {
+	background-color: #FF4500;
+}
+
+/* スマホ用画面 ================================================ */
+@media all and (max-width: 1000px) {
+
+.book_table_chapterBox {
+	width: 96%;
+	margin: 40px auto; 
+	background-color: #696969;
+	border-radius: 10px;
+}
+.book_table_chapterBox_number {
+	float: left;
+	width: 20%;
+	height: 100%;
+	color: white; 
+	font-size: 70px;
+	margin: 0 auto;
+	line-height: 170px;
+	padding-left: 5%;
+}
+.firstChapterPage_content h1 {
+	color: white;
+	text-align: center;
+	padding-top: 160px;
+	font-size: 48px;
+}
+.firstChapterPage_content h3 {
+	color: white;
+	text-align: center;
+	padding-top: 20px;
+	font-size: 30px;
+}
+.book_chapter_class {
+	width: 60%; 
+	font-size: 28px;
+	margin: 120px 0 60px 20%; 
+	font-weight: bold;
+	color: #696969;
+	padding: 15px;
+	border-radius: 10px;
+}
+.register_submit {
+	background-color: #696969;
+	border-radius: 10px; 
+	text-align: center;
+	width: 80%;
+	margin: 60px auto;
+}
+.register_submit_a input {
+	display: inline-block;
+	color: white; 
+	background-color: #00BFFF;
+	font-size: 36px;
+	font-weight: bold;
+	transition: all 1s; 
+	padding: 20px 80px;
+	border: none; 
+	border-radius: 10px; 
+	box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+}
+.authorRegister_content h1 {
+	font-size: 50px;
+}
+.authorRegister_content h5 {
+	padding-top: 20px;
+	font-size: 30px;
+}
+.loginInfo_form {
+	background-color: #696969;
+	border-radius: 10px; 
+	width: 96%;
+	margin: 20px auto;
+}
+.loginInfo_form_content {
+	width: 96%;
+	margin: 60px auto;
+}
+.loginInfo_form_content h3 {
+	color: white; 
+	text-align: center;
+	padding: 30px 0;
+	font-size: 38px;
+}
+.loginInfo_form_koumoku {
+	color: white;
+	font-size: 30px;
+	font-weight: bold; 
+}
+.loginInfo_form_input {
+	margin-top: 10px;
+}
+.loginInfo_form_input input {
+	width: 100%; 
+	font-size: 28px; 
+	font-weight: bold;
+	color: #696969;
+	padding: 10px;
+	border-radius: 10px; 
+}
+.userInfo_form {
+	background-color: #696969;
+	border-radius: 10px; 
+	width: 96%;
+	margin: 20px auto;
+}
+.newBook_form_input textarea {
+	width: 100%; 
+	height: 240px;
+	font-size: 24px; 
+	font-weight: bold;
+	color: #696969;
+	padding: 15px;
+	border-radius: 10px; 
+}
+.loginInfo_form_category {
+	width: 100%;
+	margin: 20px auto;
+	color: white;
+	font-size: 30px; 
+	font-weight: bold;
+}
+.loginInfo_form_category input {
+	font-size: 50px;
+}
+.categorySelect {
+	height: 60px;
+}
+.input_category_others {
+	width: 80%;
+	margin: 40px auto;
+	padding-bottom: 20px;
+}
+.input_category_others input {
+	width: 100%;
+	font-size: 30px; 
+	font-weight: bold;
+	color: #696969;
+	padding: 5px;
+	border-radius: 10px;
+}
+.author_centrallPage_workingBook {
+	width: 98%;
+	margin: 140px auto 0 auto;
+	padding-bottom: 200px;
+}
+.author_centrallPage_bookContent {
+	background-position: center center;
+	background-size: cover;
+	width: 200px; 
+	height: 240px;
+	white-space: normal;
+	text-align: center; 
+	text-shadow: 0px 5px 10px #000000;
+	float: left; 
+	margin: 0 19px;
+	margin-bottom: 40px;
+	transition: all 1s;
+	border-radius: 10px;
+}
+.login_form_content h1 {
+	color: white;
+	text-align: center; 
+	font-size: 48px;
+}
+.login_form_content h3 {
+	color: white;
+	text-align: center; 
+	font-size: 28px;
+	padding-bottom: 20px;
+}
+.login_form_box {
+	width: 80%;
+	margin: 40px auto;
+	border-radius: 10px;
+	background-color: #696969;
+	.login_form_category {
+		width: 80%;
+		margin: 40px auto; 
+		.login_form_what {
+			padding-top: 20px; 
+			padding-bottom: 10px;
+			color: white; 
+			font-size: 30px; 
+			font-weight: bold;
+		}
+	}
+	.login_formForgetPassword {
+		text-align: center;
+		color: white;
+		font-size: 26px;
+		padding-left: 120px;
+		font-weight: bold;
+		a {
+			color: white;
+			&:hover {
+				color: #0000CD;
+			}
+		}
+	}
+	.logIn_submitBtn  {
+		float: right;
+		margin: 20px 10% 40px 0;
+		input {
+			font-size: 30px;
+			font-weight: bold;
+			background-color: #00BFFF;
+			color: white;
+			border: none; 
+			padding: 15px 100px;
+			box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.4);
+			border-radius: 10px;
+			transition: all 1s;
+		}
+	} 
+}
+.login_form_input input {
+	width: 100%;
+	font-size: 30px;
+	font-weight: bold;
+	color: #696969;
+	padding: 10px;
+	border-radius: 10px;
+}
+.book_table_author_head {
+	color: white;
+	text-align: center;
+	margin-top: 140px;
+	h1 {
+		font-size: 50px;
+		padding-bottom: 40px;
+	}
+	a {
+		color: white;
+		font-size: 30px;
+		font-weight: bold;
+		background-color: #00BFFF;
+		padding: 15px 40px;
+		margin: 0 60px 0 0px;
+		border-radius: 10px;
+		&:hover {
+			background-color: #0000CD;
+		}
+	}
+	p {
+		font-size: 26px;
+		font-weight: bold;
+		padding-top: 50px;
+	}
+}
+
+}

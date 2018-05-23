@@ -1,0 +1,32 @@
+<div class="commentShare">
+	<div class="share_content">
+		<h1>コメントの投稿が完了しました</h1>
+		<h3>あなたの鋭いコメントを友達にシェアしよう</h3>
+		<div class="commentShare_shareBTN">
+			<a href="http://www.facebook.com/share.php?u=https://my-bookchat.com/<%= @book.id %>/<%= params[:chapter_id] %>/read_chapter" target="_blank">
+				<div class="commentShare_shareBtnIcon">
+					<i class="fa fa-facebook-f fa-5x"></i>
+				</div>
+			</a>
+			<a href="http://twitter.com/share?text=「<%= @share.content %>」【<%= @book.book_title %>】へのコメントBookChat&url=https://my-bookchat.com/<%= @book.id %>/<%= params[:chapter_id] %>/read_chapter" rel="nofollow" target="_blank">
+				<div class="commentShare_shareBtnIcon">
+					<i class="fa fa-twitter fa-5x"></i>
+				</div>
+			</a>
+			<div class="clear"></div>
+		</div>
+		<div class="back_toRead">
+			<a href="/<%= @book.id %>/<%= @chat.chapter_id %>/read_comment">
+				<div class="back_toComment back_toReadBTN">
+					コメント画面に戻る
+				</div>
+			</a>
+			<a href="/<%= @book.id %>/<%= @chat.chapter_id %>/read_chapter">
+				<div class="back_toReadingPage back_toReadBTN">
+					読書画面に戻る
+				</div>
+			</a>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>

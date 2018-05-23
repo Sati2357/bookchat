@@ -1,0 +1,42 @@
+<div class="addCharacterPage">
+	<div class="addCharacterPage_content">
+		<h1>登場人物を追加・編集</h2>
+		<%= form_tag("/chats/#{@user.id}/#{@book.id}/#{params[:chapter_id]}/add_character_post") do %>
+		<div class="add_character_box">
+			<div class="add_name_top">
+				<input name="character_name"placeholder="名前・名称をご入力ください" required>
+			</div>
+			<div class="add_name_detail">
+				<textarea name="character_detail" placeholder="登場人物がどのような人物かご説明ください。" required></textarea>
+			</div>
+			<div class="clear"></div>
+			<div class="add_name_btn">
+				<input type="submit" value="登場人物を追加">
+			</div>
+		</div>
+		<%end%>
+		<div class="edit_character_space"><br>
+			<% @character.each do |character| %>
+			<%= form_tag("/chats/#{@user.id}/#{@book.id}/#{params[:chapter_id]}/#{character.id}/edit_character_post") do %>
+			<div class="edit_character_box">
+				<div class="edit_character_name">
+					<div class="edit_character_name1">
+						<input name="character_name" placeholder="名前・名称をご入力ください" value="<%= character.character_name %>"required>
+					</div>
+					<div class="edit_character_name2">
+						<input type="checkbox" name="main" value="1" <%if character.main == 1 %>checked="checked"<%end%>>　主役
+					</div>
+				</div>
+				<div class="edit_character_explain">
+					<textarea name="character_explain" placeholder="登場じた人物がどのような人物かご説明ください。" required><%= character.character_explain %></textarea>
+				</div>
+				<div class="edit_character_btn">
+					<input type="submit" value="変更を反映">
+				</div>
+				<div class="clear"></div>
+			</div>
+			<%end%>
+			<%end%>
+		</div>
+	</div>
+</div>

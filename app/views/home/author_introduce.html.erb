@@ -1,0 +1,73 @@
+<head>
+	<title><%= @user.user_name %>の代表作品や生涯をご紹介｜無料小説投稿サイトBookChat</title>
+	<meta name="description" content="【<%= @user.user_name %>（作家）】についての情報をご紹介。<%= @user.self_messeage %>">
+</head>
+<div class="author_introducePage">
+	<div class="author_introduceContent">
+		<div class="author_image author_intCenter">
+			<img src="<%="/user_images/#{@user.user_image}"%>">
+		</div>
+		<div class="author_name author_intCenter">
+			<h1><%= @user.user_name %></h1>
+		</div>
+		<div class="author_description">
+			<%= simple_format(h(@user.self_messeage)) %>
+		</div>
+		<div class="author_share">
+			<a href="http://www.facebook.com/share.php?u=https://my-bookchat.com/<%= @user.id %>/author_introduce" target="_blank"><i class="fa fa-facebook-f fa-4x"></i></a>
+			<a href="http://twitter.com/share?text=本格派チャット型小説サイトBookChat&url=https://my-bookchat.com/<%= @user.id %>/author_introduce"" rel="nofollow" target="_blank"><i class="fa fa-twitter fa-4x"></i></a>
+		</div>
+		<div class="author_working">
+			<h2><%= @user.user_name %>の作品一覧</h2>
+			<div class="author_masterpiece">
+				<% @books.each do |book| %>
+					<a href="/<%= book.id %>/book_brief">
+					<div class="topwrapper2_row_content_size">
+					<div class="topwrapper2_row_content" style="background-image: url(/book_images/<%=book.book_image%>)">
+					  <div class="zoom-check">
+						<div class="zoom-black">
+							<h3><%= book.book_title %></h3>
+							<h5><%= book.book_user.user_name %>の作品</h5>
+						</div>
+						<div class="zoom-black-hover">
+							<h3><%= book.book_title %></h3>
+							<h5><%= book.book_user.user_name %>の作品</h5>
+							<% if book.book_user.open_unopen == "1" %>
+								<p class="aozora_p">青空文庫</p>
+							<%end%>
+							<div class="zoom-black_hide">
+								<p><%= book.book_description.truncate(55) %></p>
+							</div>
+							<% if book.book_reviewAll.present? %>
+								<% percent = book.book_reviewAll.sum(:point) / book.book_reviewAll.count %>
+									<div class="topwrapper2_row_contentReview">
+										<div class="topReview_star">
+											<% if percent >= 4 %>
+												★★★★★
+											<% elsif percent >=3 && percent < 4 %>
+												★★★★☆
+											<% elsif percent >=2 && percent < 3 %>
+												★★★☆☆
+											<% elsif percent >1 && percent < 2 %>
+												★★☆☆☆
+											<% elsif percent == 1 %>
+												★☆☆☆☆
+											<%end%>
+										</div>
+										<div class="topReview_quant">
+											<%= book.book_reviewAll.count %>件のレビュー 
+										</div>
+										<div class="clear"></div>
+									</div>
+							<%end%>
+						</div>
+					  </div>
+					</div>  
+					</div>
+					</a>
+				<%end%>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>

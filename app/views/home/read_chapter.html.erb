@@ -1,0 +1,317 @@
+<head>
+	<title><%= @book.book_title %>(<%= @author.user_name %>の作品)第<%= @chat.chapter_id %>話 「<%= @chat.chapter_title %>」を今すぐ読もう！チャット形式小説投稿サイトBookChat</title>
+	<meta name="description" content="<%= @book.book_title %>(<%= @author.user_name %>の作品)第<%= @chat.chapter_id %>話 「<%= @chat.chapter_title %>」が無料で読める！作品内容：<% @script.each do |script| %><%= script.content %><%end%>">
+</head>
+<div class="read_chapterPage">
+	<div class="read_chapter_content" style="background-image: url(/book_images/<%= @book.book_image %>)">
+		<%if session[:user_id] %>
+		<%else%>
+		<a href="/reader_register">
+			<div class="reccomment_to_regist">
+				無料読者登録しませんか？ 読者登録すると読んでいる小説を途中から読み始められます！
+			</div>
+		</a>
+		<%end%>
+		<div class="writingBookPage_reading_all">
+		<% @script.each do |script| %>
+		<div class="writingBookPage_reading_content">
+			<%if script.character.present? %>
+			<% if script.character.main == 1 %>
+			<% if script.script_feeling == 1 %>
+			<div class="BookPage_preview_main BookPage_preview_box">
+				<div class="BookPage_preview_main_who">
+					<%= script.character.character_name %>
+				</div>
+				<div class="BookPage_preview_main_msg_read">
+					<%= simple_format(h(script.content)) %>
+				</div>
+			</div>
+			<div class="clear_right clear"></div>
+			<%else%>
+			<div class="BookPage_preview_main_feeling BookPage_preview_box">
+				<div class="BookPage_preview_feeling_who">
+					<%= script.character.character_name %>
+				</div>
+				<div class="BookPage_preview_main_feeling_msg">
+					<%= simple_format(h(script.content)) %>
+				</div>
+			</div>
+			<%end%>
+			<div class="clear_right clear"></div>
+			<% else %>
+			<% if script.script_feeling == 1 %>
+			<div class="BookPage_preview_others BookPage_preview_box">
+				<div class="BookPage_preview_others_who">
+					<%= script.character.character_name %>
+				</div>
+				<div class="BookPage_preview_others_msg">
+					<%= simple_format(h(script.content)) %>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<%else%>
+			<div class="BookPage_preview_feeling BookPage_preview_box">
+				<div class="BookPage_preview_othersFeeling_who">
+					<%= script.character.character_name %>
+				</div>
+				<div class="BookPage_preview_others_feeling_msg">
+					<%= simple_format(h(script.content)) %>
+				</div>
+			</div>
+			<div class="clear_right clear"></div>
+			<%end%>
+			<%end%>
+			<%end%>
+			<%if script.script_feeling == 0 %>
+				<div class="BookPage_preview_others_back_read BookPage_preview_box">
+					<%= simple_format(h(script.content)) %>
+				</div>
+			<%end%>
+		</div>
+		<%end%>
+		</div>
+		<div id="edit_script_final"></div>
+		<%if session[:user_id] %>
+			<%if @next_chat%>
+			<%else%>
+			<div class="book_review">
+				<%if @review %>
+					<%= form_tag("/home/#{@current_user.id}/#{@book.id}/edit_review") do %>
+					<div class="book_review_content">
+					<h3>「<%= @book.book_title %>」の評価を編集する</h3>
+					<div class="book_review_icon">
+						<div class="book_review_iconFace smile">
+							<i class="fa fa-smile-o"></i>
+							<p>良い</p>
+							<input type="radio" name="book_review" value="5"<%if @review.point == 5 %>checked="checked"<%end%> required>
+						</div>
+						<div class="book_review_iconFace normal">
+							<i class="fa fa-meh-o"></i>
+							<p>普通</p>
+							<input type="radio" name="book_review" value="3" <%if @review.point == 3 %>checked="checked"<%end%> required>
+						</div>
+						<div class="book_review_iconFace bad">
+							<i class="fa fa-frown-o"></i>
+							<p>悪い</p>
+							<input type="radio" name="book_review" value="1" <%if @review.point == 1 %>checked="checked"<%end%> required>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<h5>評価のコメント</h5>
+					<textarea name="book_comment"placeholder="コメントはなくても構いませんが、良い感想などを書くと喜ばれます。"><%= @review.content %></textarea>
+					<div class="bookReview_submit">
+						<input type="submit" value="評価を編集する">
+					</div>
+					</div>
+					<%end%>
+				<%else%>
+					<%= form_tag("/home/#{@current_user.id}/#{@book.id}/book_review") do %>
+					<div class="book_review_content">
+					<h3>「<%= @book.book_title %>」の評価をしてください</h3>
+					<div class="book_review_icon">
+						<div class="book_review_iconFace smile">
+							<i class="fa fa-smile-o"></i>
+							<p>良い</p>
+							<input type="radio" name="book_review" value="5"required>
+						</div>
+						<div class="book_review_iconFace normal">
+							<i class="fa fa-meh-o"></i>
+							<p>普通</p>
+							<input type="radio" name="book_review" value="3"required>
+						</div>
+						<div class="book_review_iconFace bad">
+							<i class="fa fa-frown-o"></i>
+							<p>悪い</p>
+							<input type="radio" name="book_review" value="1"required>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<h5>評価のコメント</h5>
+					<textarea name="book_comment"placeholder="コメントはなくても構いませんが、良い感想などを書くと喜ばれます。"></textarea>
+					<div class="bookReview_submit">
+						<input type="submit" value="評価してこの本を読破する">
+					</div>
+					</div>
+					<%end%>
+				<%end%>
+			</div>
+			<%end%>
+		<%end%>
+	</div>
+	<div class="read_chapter_footer">
+		<div class="read_chapter_footer_content">
+			<%if @previous_chat%>
+				<%if @previous_chat.open_unopen == 2%>
+				<a href="/<%= @book.id %>/<%= @previous %>/read_chapter">
+				<div class="footer_previewStory footer_float">
+					<p>前話</p>
+					<h5><%= @previous_chat.chapter_title.truncate(8) %></h5>
+				</div>
+				</a>
+				<%else%>
+				<a href="/<%= @book.id %>/book_brief">
+				<div class="footer_previewStory footer_float">
+					<p>前話なし</p>
+					<h5>表紙に戻る</h5>
+				</div>
+				</a>
+				<%end%>
+			<%else%>
+				<a href="/<%= @book.id %>/book_brief">
+				<div class="footer_previewStory footer_float">
+					<p>前話なし</p>
+					<h5>表紙に戻る</h5>
+				</div>
+				</a>
+			<%end%>
+			<a href="/<%= @book.id %>/book_brief">
+			<div class="footer_mokuji footer_float">
+				<h5>目次</h5>
+			</div>
+			</a>
+			<%if @next_chat%>
+				<%if @next_chat.open_unopen == 2%>
+					<a href="/<%= @book.id %>/<%= @next %>/read_chapter">
+					<div class="footer_nextStory footer_float">
+						<p>次話</p>
+						<h5><%= @next_chat.chapter_title.truncate(8) %></h5>
+					</div>
+					</a>
+				<%else%>
+					<a href="/<%= @book.id %>/book_brief">
+					<div class="footer_nextStory footer_float">
+						<p>執筆中</p>
+						<h5>表紙に戻る</h5>
+					</div>
+					</a>
+				<%end%>
+			<%else%>
+				<a href="/<%= @book.id %>/book_brief">
+				<div class="footer_nextStory footer_float">
+					<p>完結</p>
+					<h5>表紙に戻る</h5>
+				</div>
+				</a>
+			<%end%>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="book_comment" id="bookComment">
+		<div class="book_commentWrapper1">
+			<div class="book_comment_quant">
+				<i class="fa fa-comment fa-3x"></i> <%= @comments.count %>
+			</div>
+			<%if session[:user_id] %>
+				<div class="book_comment_writeBTN">
+					<i class="fa fa-pencil" aria-hidden="true"></i>コメントを書く
+				</div>
+			<%else%>
+				<a href="/confirm_login" style="color: white">
+				<div class="book_comment_writeBTN">
+					<i class="fa fa-pencil" aria-hidden="true"></i>コメントを書く
+				</div>
+				</a>
+			<%end%>
+			<div class="book_comment_delete">
+				<i class="fa fa-times-circle"></i>
+			</div>
+			<div class="clear clear-right"></div>
+		</div>
+		<div class="book_commentPost">
+			<div class="book_commentPost_content">
+			<%if session[:user_id] %>
+			<%= form_tag("/users/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/post_comment") do %>
+				<textarea name="book_comment"placeholder="コメントを入力ください"></textarea>
+				<div class="comment_warningList">
+					<p>・書く前に一呼吸置いて、丁寧な言葉づかいをしましょう。</p>
+					<p>・人格を否定するようなコメントはやめましょう。</p>
+					<p>・誹謗中傷や根拠のない批判はやめましょう。</p>
+				</div>
+				<input type="submit" value="投稿する">
+			<%end%>
+			<%end%>
+			</div>
+		</div>
+		<% @comments.each do |comment| %>
+		<div class="book_commentEachContent" id="comment<%=comment.id%>">
+			<div class="book_commentEachContent_up">
+				<div class="book_commentEachContent_name">
+					<%= comment.comment_user.user_name %>
+				</div>
+				<%if session[:user_id] %>
+				<%if comment.user_id == @current_user.id %>
+				<div class="book_commentEachContent_delete">
+					<%= link_to("削除","/users/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/#{comment.id}/comment_destroy", {method: "post"}) %>
+				</div>
+				<%end%>
+				<%end%>
+				<div class="clear clear-right"></div>
+			</div>
+			<div class="book_commentEachContent_down">
+				<div class="book_commentEachContent_downComent">
+					<%= simple_format(h(comment.content)) %>
+				</div>
+				<div class="book_commentEachContent_goodBad">
+					<%if session[:user_id] %>
+						<%if comment.comment_like%>
+							<%if comment.comment_like.good == 1 %>
+							 <%= form_tag("/home/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/#{comment.id}/good_destroy") do %>
+								<button type="submit">
+									<div class="book_commentEachContent_good color_blue">
+										<i class="fa fa-thumbs-up"></i>　<%= comment.good %>
+									</div>
+								</button>
+							 <%end%>
+							<%else%>
+								<div class="book_commentEachContent_good">
+										<i class="fa fa-thumbs-up"></i>　<%= comment.good %>
+								</div>
+							<%end%>
+							<% if comment.comment_like.bad == 1 %>
+							 <%= form_tag("/home/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/#{comment.id}/bad_destroy") do %>
+								<button type="submit">
+									<div class="book_commentEachContent_bad color_blue">
+										<i class="fa fa-thumbs-down"></i>　<%= comment.bad %>
+									</div>
+								</button>
+							 <%end%>
+							<%else%>
+								<div class="book_commentEachContent_bad">
+									<i class="fa fa-thumbs-down"></i>　<%= comment.bad %>
+								</div>
+							<%end%>
+						<%else%>
+							<%= form_tag("/home/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/#{comment.id}/good_comment") do %>
+								<button type="submit">
+									<div class="book_commentEachContent_good">
+										<i class="fa fa-thumbs-up"></i>　<%= comment.good %>
+									</div>
+								</button>
+							<%end%>
+							<%= form_tag("/home/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/#{comment.id}/bad_comment") do %>
+								<button type="submit">
+									<div class="book_commentEachContent_bad">
+										<i class="fa fa-thumbs-down"></i>　<%= comment.bad %>
+									</div>
+								</button>
+							<%end%>
+						<%end%>
+					<%else%>
+						<a href="/confirm_login">
+						<div class="book_commentEachContent_good color_brown">
+							<i class="fa fa-thumbs-up"></i>　<%= comment.good %>
+						</div>
+						</a>
+						<a href="/confirm_login">
+						<div class="book_commentEachContent_bad color_brown">
+							<i class="fa fa-thumbs-down"></i><%= comment.bad %>
+						</div>
+						</a>
+					<%end%>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<%end%>
+	</div>
+</div>

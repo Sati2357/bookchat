@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@Rishiryu1" />
+	<meta property="og:url" content="https://my-bookchat.com/<%= @book.id %>/<%= params[:chapter_id] %>/read_chapter" />
+	<meta property="og:title" content="<%= @user.user_name %>様の【<%= @book.book_title %>】(作家：<%= @author.user_name %>)へのコメント！無料チャット形式小説投稿サイトBookChat " />
+	<meta property="og:description" content="<%= @share.content %>" />
+	<meta property="og:image" content="https://my-bookchat.com/book_images/<%= @book.book_image %>" />
+  </head>
+  <body>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117552395-1"></script>
+  <script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+
+  	gtag('config', 'UA-117552395-1');
+  </script>
+  	<header>
+	  <div class="authorHeader">
+		  <div class="authorHeader_logo">
+			  <%= link_to image_tag('/BookChat_logo.png', { :border => '0', :alt => 'BookChat'}), "/" %>
+		  </div>
+		  <div class="reader_comment">
+			  <i class="fa fa-comment fa-3x"></i> <%= @comments.count %>
+		  </div>
+		  <div class="book_information" align="center">
+			  <div class="book_title_head">
+				  <%= @book.book_title %>
+			  </div>
+			  <div class="book_chapter_head">
+				  <%=@chat.chapter_id%>話　<%= @chat.chapter_title%>
+			  </div>
+		  </div>
+		  <div class="usualHeader_share">
+			<a href="http://www.facebook.com/share.php?u=https://my-bookchat.com/<%= @book.id %>/<%= params[:chapter_id] %>/read_chapter" target="_blank"><i class="fa fa-facebook-f fa-3x"></i></a>
+			<a href="http://twitter.com/share?text=本格派チャット型小説サイトBookChat&url=https://my-bookchat.com/<%= @book.id %>/<%= params[:chapter_id] %>/read_chapter" rel="nofollow" target="_blank"><i class="fa fa-twitter fa-3x"></i></a>
+		  </div>
+		  <%if session[:user_id] %>
+		  <ul class="menu">
+				<li class="teacher_header_name thm thn"><span>MENU▼</span>
+					<ul class="sub thn">
+						  <li class="thn"><%= link_to("#{@current_user.user_name.truncate(10)}様ページ","/users/#{@current_user.id}/reader_central")%></li>
+						  <li class="thn"><%= link_to("作家一覧","/author_menu")%></li>
+						  <li class="thn"><%= link_to("作品ジャンル","/category_all")%></li>
+					</ul>
+				</li>
+		  </ul>
+		  <div class="clear clear_right"></div>
+		  <%else%>
+		  <ul class="menu">
+				<li class="teacher_header_name thm thn"><span>MENU▼</span>
+					<ul class="sub thn">
+						  <li class="thn"><%= link_to("作家一覧","/author_menu")%></li>
+						  <li class="thn"><%= link_to("作品ジャンル","/category_all")%></li>
+						  <li class="thn"><%= link_to("本を書く","/author_register")%></li>
+						  <li class="thn"><%= link_to("読者登録","/reader_register")%></li>
+						  <li class="thn"><%= link_to("ログイン","/login_form")%></li>
+					</ul>
+				</li>
+			 </ul> 
+		  <div class="clear clear_right"></div>
+		  <%end%>
+	  </div>
+	</header>
+	
+	<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+	<%end%>
+	
+    <%= yield %>
+  </body>
+</html>

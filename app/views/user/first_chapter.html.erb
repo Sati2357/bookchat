@@ -1,0 +1,16 @@
+<div class="firstChapterPage">
+	<div class="firstChapterPage_content">
+		<h1>第1話のタイトルをご入力ください</h1>
+		<h3>タイトルはあとで変更することも可能です。</h3>
+		<%= form_tag("/users/#{@user.id}/#{@book.id}/first_chapter_register") do %>	
+		<input class="book_chapter_class" name="book_chapter" type="text" placeholder="第1話のタイトルをご入力ください"value="<%= @chat.chapter_title %>" required>
+		<div class="register_submit">
+			<br>
+			<div class="register_submit_a">
+				<input type="submit" value="本を書き始める">
+			</div>
+			<br>
+		</div>
+		<%end%>
+	</div>
+</div>

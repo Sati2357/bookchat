@@ -1,0 +1,41 @@
+<head>
+	<title>ユーザー認証画面|無料小説投稿サイトBookChat</title>
+</head>
+<div class="login_formPage">
+	<div class="login_form_content">
+		<h1>ユーザー認証</h1>
+		<h3>この機能を使うには初めに生徒登録が必要です。</h3>
+		<a href="/reader_register">
+		<div class="login_form_register">
+			無料読者登録
+		</div>
+		</a>
+		<div class="form-error">
+            <%= @error_message %>
+        </div>
+		<%= form_tag("/login_post") do %>
+		<div class="login_form_box">
+			<div class="login_form_category">
+				<div class="login_form_what">
+					メールアドレス
+				</div>
+				<div class="login_form_input">
+					<input name="email" value="<%= @email %>" required>
+				</div>
+			</div>
+			<div class="login_form_category">
+				<div class="login_form_what">
+					パスワード
+				</div>
+				<div class="login_form_input">
+					<input type="password" name="password" value="<%= @password %>" required>
+				</div>
+			</div>
+			<div class="logIn_submitBtn">
+				<input class="user_login_submit" type="submit" value="ログイン">
+			</div>
+			<div class="clear_right"></div>
+		</div>
+		<%end%>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<head>
+	<title>青空文庫の小説を無料でチャット形式で読める！小説投稿サイトBookChat</title>
+	<meta name="description" content="青空文庫の小説を無料で好きなだけ読める！作家登録することで気軽に簡単に作品を投稿することも可能。過去の青空文庫の名作もチャット形式で復活！">
+</head>
+<div class="eachCategoryPage">
+	<div class="eachCategoryPage_content">
+		<h1>青空文庫の作家一覧</h1>
+		<div class="eachCategoryPage_books">
+			<% @users.each do |user| %>
+			<a href="/<%= user.id %>/author_introduce">
+			<div class="authorMenu_eachWriters">
+				<img src ="<%="/user_images/#{user.user_image}"%>" alt = "">
+				<div class="authorMenu_eachWriters_name">
+					<%= user.user_name %>
+				</div>
+			</div>
+			</a>
+			<%end%>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>

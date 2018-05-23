@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>【<%= @current_user.user_name %>先生】作家用ログイン画面</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117552395-1"></script>
+  <script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+
+  	gtag('config', 'UA-117552395-1');
+  </script>
+  	<header>
+	  <div class="authorHeader">
+		  <div class="usualHeader_logo">
+			  <%= link_to image_tag('/BookChat_logo.png', { :border => '0', :alt => 'BookChat'}), "/users/#{@current_user.id}/author_central" %>
+		  </div>
+		  <div class="select_writer_reader" align="center">
+			  <a href="/users/<%= @current_user.id %>/reader_central">
+			  <div class="reader_header select_factor select_white">
+				  <i class="fa fa-book"></i>
+				  <p>読者用ページ</p>
+			  </div>
+			  </a>
+			  <a href="/users/<%= @current_user.id %>/author_central">
+			  <div class="author_header select_factor select_blue">
+				 <i class="fa fa-pencil"></i>
+				  <p>作家用ページ</p>
+			  </div>
+			  </a>
+		  </div>
+		  <ul class="menu1">
+				<li class="teacher_header_name thm thn"><span>MENU▼</span>
+					<ul class="sub thn">
+						  <li class="thn"><%= link_to("トップページ","/")%></li>
+						  <li class="thn"><%= link_to("プロフィール編集","/users/#{@current_user.id}/edit_user")%></li>
+						  <li class="thn"><%= link_to("ログアウト","/logout",{method: "post"})%></li>
+					</ul>
+				</li>
+			 </ul> 
+		  <div class="clear clear_right"></div>
+	  </div>
+	</header>
+	
+	<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+	<%end%>
+	
+    <%= yield %>
+  </body>
+</html>

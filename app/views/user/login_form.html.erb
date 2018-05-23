@@ -1,0 +1,38 @@
+<head>
+	<title>ログイン画面|無料小説投稿サイトBookChat</title>
+</head>
+<div class="login_formPage">
+	<div class="login_form_content">
+		<h1>ログイン</h1>
+		<div class="form-error">
+            <%= @error_message %>
+        </div>
+		<%= form_tag("/login_post") do %>
+		<div class="login_form_box">
+			<div class="login_form_category">
+				<div class="login_form_what">
+					メールアドレス
+				</div>
+				<div class="login_form_input">
+					<input name="email" value="<%= @email %>" required>
+				</div>
+			</div>
+			<div class="login_form_category">
+				<div class="login_form_what">
+					パスワード
+				</div>
+				<div class="login_form_input">
+					<input type="password" name="password" value="<%= @password %>" required>
+				</div>
+			</div>
+			<div class="login_formForgetPassword">
+				※パスワードを忘れた方は<%=link_to("「こちら」", "/forget_password")%>へ
+			</div>
+			<div class="logIn_submitBtn">
+				<input class="user_login_submit" type="submit" value="ログイン">
+			</div>
+			<div class="clear_right"></div>
+		</div>
+		<%end%>
+	</div>
+</div>

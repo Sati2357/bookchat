@@ -1,0 +1,119 @@
+<head>
+	<title><%= @book.book_title %>(<%= @user.user_name %>の作品)を今すぐ読もう！あらすじ、感想、解説もご紹介。書き出しから読める無料小説投稿サイトBookChat</title>
+	<meta name="description" content="<%= @book.book_title %>(<%= @user.user_name %>の作品)についての情報をご紹介。<%= @book.book_description %>">
+</head>
+<div class="book_briefPage" style="background-image: url(/book_images/<%= @book.book_image %>)">
+	<div class="book_briefPage_black">
+	<div class="book_briefPage_content">
+		<div class="book_briefPage_content_head">
+			<h1><%= @book.book_title %></h1>
+			<% if @user.open_unopen == "1" %>
+				<h3>青空文庫作品</h3>
+			<%end%>
+			<p><%= simple_format(h(@book.book_description)) %></p>
+		</div>
+		<div class="book_briefPage_startRead">
+			<%= link_to("読み始める", "/#{@book.id}/#{@first_chapter.chapter_id}/read_chapter") %>
+		</div>
+		<div class="book_briefPage_goReview">
+			<%= link_to("レビュー","/#{@book.id}/book_brief/#book_briefPage_review") %>
+		</div>
+		<div class="book_briefPage_mokuji" id="mokuji">
+			<h1>目次</h1>
+			<div class="book_briefPage_mokuji_list">
+				<% @chat.each do |chat| %>
+				<a href="/<%= @book.id %>/<%= chat.chapter_id %>/read_chapter"><p><%= chat.chapter_id %>.　<%= chat.chapter_title %></p></a>
+				<%end%>
+			</div>
+		</div>
+		<div class="book_briefPage_character" id="character_listExplain">
+			<h1>主な登場人物</h1>
+			<% @character.each do |character| %>
+			<div class="book_briefPage_character1">
+				<div class="book_briefPage_character_name">
+					<%= character.character_name %>
+				</div>
+				<div class="book_briefPage_character_dot">
+				・　・　・　・　・
+				</div>
+				<div class="book_briefPage_character_explain">
+					<%= character.character_explain %>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<%end%>
+		</div>
+		<div class="book_briefPage_Review" id="book_briefPage_review">
+			<h1>レビュー<%= @reviews.count %>件</h1>
+			<div class="book_briefPage_ReviewIcon">
+				<div class="book_review_iconFace smile">
+					<i class="fa fa-smile-o"></i>
+					<h3><%= @good.count %>件</h3>
+					<p>（良い）</p>
+				</div>
+				<div class="book_review_iconFace normal">
+					<i class="fa fa-meh-o"></i>
+					<h3><%= @normal.count %>件</h3>
+					<p>（普通）</p>
+				</div>
+				<div class="book_review_iconFace bad">
+					<i class="fa fa-frown-o"></i>
+					<h3><%= @bad.count %>件</h3>
+					<p>（悪い）</p>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="book_briefPage_ReviewComment">
+				<% @reviews.each do |review| %>
+					<div class="book_commentEachContent">
+						<div class="book_commentEachContent_up">
+							<div class="book_commentEachContent_name">
+								<%= review.review_user.user_name %>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="book_commentEachContent_down">
+							<div class="book_commentEachContent_downComent">
+								<%= simple_format(h(review.content)) %>
+							</div>
+							<div class="book_commentEachContent_goodBad">
+								<div class="book_commentEachContent_goodBadIcon">
+									<% if review.point == 5 %>
+										<span class="smile"><i class="fa fa-smile-o"></i></span>
+									<% elsif review.point == 3 %>
+										<span class="normal"><i class="fa fa-meh-o"></i></span>
+									<% elsif review.point == 1 %>
+										<span class="bad"><i class="fa fa-frown-o"></i></span>
+									<%end%>
+								</div>
+							</div>
+						</div>
+					</div>
+				<%end%>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="read_chapter_footer">
+		<div class="read_chapter_footer_content">
+			<a href="/<%= @user.id %>/author_introduce">
+				<div class="footer_previewStory footer_float">
+					<p>作家</p>
+					<h5><%= @user.user_name.truncate(8) %></h5>
+				</div>
+			</a>
+			<a href="/<%=@book.id%>/book_brief/#character_listExplain">
+				<div class="footer_mokuji footer_float">
+					<h5>登場人物</h5>
+				</div>
+			</a>
+			<a href="/<%=@book.id%>/<%=@first_chapter.chapter_id%>/read_chapter">
+				<div class="footer_nextStory footer_float">
+					<p>読み始める</p>
+					<h5><%= @first_chapter.chapter_title.truncate(8) %></h5>
+				</div>
+			</a>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>

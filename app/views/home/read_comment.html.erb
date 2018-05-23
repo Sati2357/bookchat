@@ -1,0 +1,123 @@
+<head>
+	<title>【<%= @book.book_title %>】第<%= @chat.chapter_id %>話 「<%= @chat.chapter_title %>」のコメント一覧！無料チャット形式小説投稿サイトBookChat</title>
+</head>
+<div class="book_comment2">
+		<div class="book_commentWrapper1">
+			<div class="book_comment_quant">
+				<i class="fa fa-comment fa-3x"></i> <%= @comments.count %>
+			</div>
+			<%if session[:user_id] %>
+				<div class="book_comment_writeBTN">
+					<i class="fa fa-pencil" aria-hidden="true"></i>コメントを書く
+				</div>
+			<%else%>
+				<a href="/confirm_login" style="color: white">
+				<div class="book_comment_writeBTN">
+					<i class="fa fa-pencil" aria-hidden="true"></i>コメントを書く
+				</div>
+				</a>
+			<%end%>
+			<a href="/<%= @book.id %>/<%= @chat.chapter_id %>/read_chapter">
+				<div class="book_comment_delete2">
+					<i class="fa fa-times-circle"></i>
+				</div>
+			</a>
+			<div class="clear clear-right"></div>
+		</div>
+		<div class="book_commentPost">
+			<div class="book_commentPost_content">
+			<%if session[:user_id] %>
+			<%= form_tag("/users/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/post_comment") do %>
+				<textarea name="book_comment"placeholder="コメントを入力ください"></textarea>
+				<div class="comment_warningList">
+					<p>・書く前に一呼吸置いて、丁寧な言葉づかいをしましょう。</p>
+					<p>・人格を否定するようなコメントはやめましょう。</p>
+					<p>・誹謗中傷や根拠のない批判はやめましょう。</p>
+				</div>
+				<input type="submit" value="投稿する">
+			<%end%>
+			<%end%>
+			</div>
+		</div>
+		<% @comments.each do |comment| %>
+		<div class="book_commentEachContent" id="comment<%=comment.id%>">
+			<div class="book_commentEachContent_up">
+				<div class="book_commentEachContent_name">
+					<%= comment.comment_user.user_name %>
+				</div>
+				<%if session[:user_id] %>
+				<%if comment.user_id == @current_user.id %>
+				<div class="book_commentEachContent_delete">
+					<%= link_to("削除","/users/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/#{comment.id}/comment_destroy", {method: "post"}) %>
+				</div>
+				<%end%>
+				<%end%>
+				<div class="clear clear-right"></div>
+			</div>
+			<div class="book_commentEachContent_down">
+				<div class="book_commentEachContent_downComent">
+					<%= simple_format(h(comment.content)) %>
+				</div>
+				<div class="book_commentEachContent_goodBad">
+					<%if session[:user_id] %>
+						<%if comment.comment_like%>
+							<%if comment.comment_like.good == 1 %>
+							 <%= form_tag("/home/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/#{comment.id}/good_destroy") do %>
+								<button type="submit">
+									<div class="book_commentEachContent_good color_blue">
+										<i class="fa fa-thumbs-up"></i>　<%= comment.good %>
+									</div>
+								</button>
+							 <%end%>
+							<%else%>
+								<div class="book_commentEachContent_good">
+										<i class="fa fa-thumbs-up"></i>　<%= comment.good %>
+								</div>
+							<%end%>
+							<% if comment.comment_like.bad == 1 %>
+							 <%= form_tag("/home/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/#{comment.id}/bad_destroy") do %>
+								<button type="submit">
+									<div class="book_commentEachContent_bad color_blue">
+										<i class="fa fa-thumbs-down"></i>　<%= comment.bad %>
+									</div>
+								</button>
+							 <%end%>
+							<%else%>
+								<div class="book_commentEachContent_bad">
+									<i class="fa fa-thumbs-down"></i>　<%= comment.bad %>
+								</div>
+							<%end%>
+						<%else%>
+							<%= form_tag("/home/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/#{comment.id}/good_comment") do %>
+								<button type="submit">
+									<div class="book_commentEachContent_good">
+										<i class="fa fa-thumbs-up"></i>　<%= comment.good %>
+									</div>
+								</button>
+							<%end%>
+							<%= form_tag("/home/#{@current_user.id}/#{@book.id}/#{@chat.chapter_id}/#{comment.id}/bad_comment") do %>
+								<button type="submit">
+									<div class="book_commentEachContent_bad">
+										<i class="fa fa-thumbs-down"></i>　<%= comment.bad %>
+									</div>
+								</button>
+							<%end%>
+						<%end%>
+					<%else%>
+						<a href="/confirm_login">
+						<div class="book_commentEachContent_good color_brown">
+							<i class="fa fa-thumbs-up"></i>　<%= comment.good %>
+						</div>
+						</a>
+						<a href="/confirm_login">
+						<div class="book_commentEachContent_bad color_brown">
+							<i class="fa fa-thumbs-down"></i><%= comment.bad %>
+						</div>
+						</a>
+					<%end%>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<%end%>
+</div>

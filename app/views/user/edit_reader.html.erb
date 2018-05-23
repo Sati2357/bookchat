@@ -1,0 +1,103 @@
+<div class="authorRegisterPage">
+	<div class="authorRegister_content">
+		<h1>読者のアカウント情報を編集</h1>
+		<h5>登録情報は何度でも編集することが可能です。</h5>
+		<div class="form-error">
+            <%= @error_message %>
+        </div>
+	</div>
+	<%= form_tag("/users/#{@user.id}/edit_reading" , {multipart: true}) do %>
+	<div class="loginInfo_form">
+		<div class="loginInfo_form_content">
+			<h3>ログイン情報</h3>
+			<div class="loginInfo_form_box">
+				<div class="loginInfo_form_koumoku">
+					メールアドレス&emsp;<span style="color: red">*</span><span class="non_dis">(非公開)</span>
+				</div>
+				<div class="loginInfo_form_input">
+					<input name="email" type="text" placeholder="メールアドレスをご入力ください"value="<%= @user.email %>" required>
+				</div>
+			</div>
+			<div class="loginInfo_form_box">
+				<div class="loginInfo_form_koumoku">
+					再入力: メールアドレス&emsp;<span style="color: red">*</span><span class="non_dis">(非公開)</span>
+				</div>
+				<div class="loginInfo_form_input">
+					<input name="email_confirmation" type="text" placeholder="誤入力防止のため、もう一度同じものをご入力ください"value="<%= @email_confirm %>" required>
+				</div>
+			</div>
+			<div class="loginInfo_form_box">
+				<div class="loginInfo_form_koumoku">
+					パスワード&emsp;<span style="color: red">*</span><span class="non_dis">(非公開)</span>
+				</div>
+				<div class="loginInfo_form_input">
+					<input name="password" type="password" placeholder=""value="<%= @user.password %>" required>
+				</div>
+			</div>
+			<div class="loginInfo_form_box">
+				<div class="loginInfo_form_koumoku">
+					再入力: パスワード&emsp;<span style="color: red">*</span><span class="non_dis">(非公開)</span>
+				</div>
+				<div class="loginInfo_form_input">
+					<input name="password_confirmation" type="password" placeholder="誤入力防止のため、もう一度同じものをご入力ください"value="<%= @passowrd_confirm %>" required>
+				</div>
+			</div>
+			<div class="loginInfo_form_box">
+				<div class="loginInfo_form_koumoku">
+					好きな言葉やフレーズ&emsp;<span style="color: red">*</span><span class="non_dis">パスワード消失時に利用いたします</span>
+				</div>
+				<div class="loginInfo_form_input">
+					<input name="phrase" type="text" placeholder="入力した内容は忘れずに管理ください" value="<%=@user.phrase%>" required>
+				</div>
+			</div>
+			<br>
+		</div>
+	</div>
+	<div class="userInfo_form">
+		<div class="loginInfo_form_content">
+			<h3>ユーザー情報</h3>
+			<div class="loginInfo_form_box">
+				<div class="loginInfo_form_koumoku">
+					ペンネーム&nbsp;(ユーザー名)&emsp;<span style="color: red">*</span>
+				</div>
+				<div class="loginInfo_form_input">
+					<input name="user_name" type="text" placeholder=""value="<%= @user.user_name%>" required>
+				</div>
+			</div>
+			<div class="loginInfo_form_box">
+				<div class="loginInfo_form_koumoku">
+					性別&emsp;<span style="color: red">*</span>
+				</div>
+				<div class="gender_form_input">
+					<div class="user_info_radio">
+						<input type="radio" name="gender" value="男性"<%if @user.gender == "男性" %>checked="checked"<%end%> required>男性
+					</div>　
+					<div class="user_info_radio">
+						<input type="radio" name="gender" value="女性" <%if @user.gender == "女性" %>checked="checked"<%end%> required>女性
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<br>
+		</div>
+	</div>
+	<div class="newBook_image_register">
+		<div class="newBook_image_register_content">
+			<h3>プロフィール写真を編集</h3>
+			<div class="newBook_image_register_image">
+				<input name="user_image" type="file">
+			</div>
+			<div class="newBook_image_register_nowImage">
+				<img src="<%= "/user_images/#{@user.user_image}"%>">
+			</div>
+		</div>
+	</div>
+	<div class="register_submit">
+		<br>
+		<div class="register_submit_a">
+			<input type="submit" value="アップデート">
+		</div>
+		<br>
+	</div>
+	<%end%>
+</div>

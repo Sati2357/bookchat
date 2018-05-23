@@ -1,0 +1,48 @@
+<div class="book_table_author">
+	<div class="book_table_author_content">
+		<div class="book_table_author_head">
+			<h1><%= @book.book_title.truncate(14) %>の話一覧</h1>
+			<%= link_to("本の基本情報を編集","/users/#{@user.id}/#{@book.id}/1/edit_book_register") %>
+			<%if @chat_check.present? %>
+				<%= link_to("全話公開する","/users/#{@user.id}/#{@book.id}/chat_allOpen", {method: "post"}) %>
+			<%else%>
+				<%= link_to("全話非公開にする","/users/#{@user.id}/#{@book.id}/chat_allUnopen", {method: "post"}) %>
+			<%end%>
+			<p>「話」のタイトルを変更したい場合は、対象の「話」のタイトルを編集の上、<br>「タイトルを変更」ボタンをクリックください。</p>
+		</div>
+		<% @chat.each do |chat| %>
+		<div class="book_table_chapterBox">
+			<div class="book_table_chapterBox_number">
+				<%= chat.chapter_id %>話
+			</div>
+			<div class="book_table_chapterBox_right">
+				<div class="book_table_chapterBox_edit">
+					<div class="book_table_chapterBox_edit1">
+						<%= link_to("内容を編集する", "/chats/#{@user.id}/#{chat.book_id}/#{chat.chapter_id}/writing_book")%>
+					</div>
+					<div class="book_table_chapterBox_edit2">
+						<% if chat.open_unopen == 2%>
+							<%= link_to("公開中止", "/chats/#{@user.id}/#{chat.book_id}/#{chat.chapter_id}/book_unopen", {method: "post"})%>
+						<%else%>
+							<%= link_to("公開する", "/chats/#{@user.id}/#{chat.book_id}/#{chat.chapter_id}/book_open", {method: "post"})%>
+						<%end%>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<%= form_tag("/chats/#{@user.id}/#{chat.book_id}/#{chat.chapter_id}/change_title") do %>
+				<div class="book_table_chapterBox_title">
+					<div class="book_table_chapterBox_title1">
+						<input name="chapter_title" type="text" value="<%= chat.chapter_title %>">
+					</div>
+					<div class="book_table_chapterBox_title2">
+						<input type="submit" value="タイトルを変更する">
+					</div>
+				</div>
+				<%end%>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<%end%>
+	</div>
+</div>

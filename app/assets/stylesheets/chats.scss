@@ -1,0 +1,751 @@
+// Place all the styles related to the chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 作業用ページ ================================ */
+.writingBookPage {
+	width: 100%;
+	height: 100%;
+}
+.writingBookPage_preview {
+	margin-top: 100px;
+	width: 100%;
+	height: 800px;
+	background-size: cover;
+	background-position: center center;
+	overflow: scroll;
+}
+.writingBookPage_preview_content {
+	width: 90%;
+	margin: 10px auto 10px auto;
+}
+.BookPage_preview_main_who {
+	background-color: #00CED1;
+	padding: 20px;
+	width: 15%;
+	text-align: center;
+	margin-top: 0;
+	float: right;
+	border-radius: 10px;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+.BookPage_preview_main_msg {
+	background-color: #00CED1;
+	padding: 20px;
+	width: 75%;
+	float: right;
+	margin: 0 60px 0 0;
+	position: relative;
+	display: inline-block;
+	min-width: 120px;
+	max-width: 100%;
+	border-radius: 10px;
+}
+.BookPage_preview_main_msg_read {
+	background-color: #00CED1;
+	padding: 20px;
+	width: 75%;
+	float: right;
+	margin: 0 60px 0 0;
+	position: relative;
+	display: inline-block;
+	min-width: 120px;
+	max-width: 100%;
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+	border: none;
+}
+.BookPage_preview_main_msg_read:before {
+	content: "";
+	position: absolute;
+	top: 30px;
+	left: 100%;
+	margin-top: -15px;
+	border: 15px solid transparent;
+	border-left: 15px solid #00CED1;
+}
+.BookPage_preview_main_msg textarea {
+	background-color: #00CED1;
+	padding: 20px;
+	width: 100%;
+	float: right;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 10px;
+	border: medium solid white;
+}
+.script_edit_link {
+	font-size: 18px;
+	font-weight: bold;
+	color: #696969;
+}
+.script_edit_link a {
+	display: inline-block;
+	color: #FF1493;
+	font-weight: bold;
+	padding: 14px 20px 5px 14px;
+	font-size: 18px;
+}
+.script_edit_link select {
+	border: none; 
+	color: #696969;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: serif;
+	background-color: rgba(0,0,0,0);
+}
+.script_edit_link input {
+	border: none; 
+	color: #FF1493;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 1s;
+	font-family: serif;
+	background-color: rgba(0,0,0,0);
+}
+.padding_rightSpace {
+	margin-right: 20px;
+}
+.BookPage_preview_main_msg:before {
+	content: "";
+	position: absolute;
+	top: 40%;
+	left: 100%;
+	margin-top: -15px;
+	border: 15px solid transparent;
+	border-left: 15px solid #00CED1;
+}
+.BookPage_preview_feeling_who {
+	background-color: #00CED1;
+	padding: 20px;
+	width: 15%;
+	text-align: center;
+	margin-top: 10%;
+	float: right;
+	border-radius: 10px;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+.BookPage_preview_main_feeling_msg {
+	padding: 30px 120px 60px 120px;
+	width: 75%;
+	float: right;
+	margin: 0 60px 0 0;
+	position: relative;
+	display: inline-block;
+	min-width: 120px;
+	max-width: 100%;
+	border-radius: 100px;
+	font-size: 18px;
+	font-weight: bold;
+	background-image: url(/cloud_right.png);
+	color: #00CED1;
+	background-size: 100% 100%;
+	background-position: center center;
+}
+.BookPage_preview_main_feeling_msg textarea {
+	background-color: white;
+	padding: 20px;
+	width: 100%;
+	float: right;
+	color: #00CED1;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 10px;
+	border: medium solid #00CED1;
+}
+.BookPage_preview_others_who {
+	background-color: white;
+	padding: 20px;
+	width: 15%;
+	text-align: center;
+	margin-top: 0;
+	float: left;
+	border-radius: 10px;
+	color: #696969;
+	font-size: 20px;
+	font-weight: bold;
+}
+.BookPage_preview_othersFeeling_who {
+	background-color: white;
+	padding: 20px;
+	width: 15%;
+	text-align: center;
+	margin-top: 3%;
+	float: left;
+	border-radius: 10px;
+	color: #696969;
+	font-size: 20px;
+	font-weight: bold;
+}
+.BookPage_preview_others_msg {
+	background-color: white;
+	padding: 20px;
+	width: 75%;
+	float: left;
+	margin: 0 0 0 60px;
+	position: relative;
+	display: inline-block;
+	min-width: 120px;
+	max-width: 100%;
+	border-radius: 10px;
+	color: #696969;
+	font-size: 18px;
+	font-weight: bold;
+	border: none;
+}
+.BookPage_preview_others_msg textarea {
+	background-color: white;
+	padding: 20px;
+	width: 100%;
+	float: left;
+	color: #696969;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 10px;
+	border: medium solid #696969;
+}
+.BookPage_preview_others_msg:before {
+	content: "";
+	position: absolute;
+	top: 30px;
+	right: 100%;
+	margin-top: -15px;
+	border: 15px solid transparent;
+	border-right: 15px solid white;
+}
+.BookPage_preview_others_back {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	color: #696969;
+	font-size: 18px;
+	font-weight: bold;
+	background-image: url(/back_descript.png);
+	background-size: 100% 100%;
+	background-position: center center;
+}
+.BookPage_preview_others_back_read {
+	width: 80%;
+	margin: 0 auto;
+	padding: 40px 80px;
+	color: #696969;
+	font-size: 18px;
+	font-weight: bold;
+	background-image: url(/back_descript.png);
+	background-size: 100% 100%;
+	background-position: center center;
+}
+.BookPage_preview_others_back textarea {
+	width:  80%;
+	margin: 20px auto 0 auto;
+	color: #696969;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 10px;
+	border: medium solid #696969;
+	padding: 20px;
+}
+.back_edit_link {
+	padding-bottom: 20px;
+}
+.BookPage_preview_others_feeling_msg {
+	padding: 55px 120px 30px 120px;
+	width: 75%;
+	float: right;
+	margin: 0 60px 0 0;
+	position: relative;
+	display: inline-block;
+	min-width: 120px;
+	max-width: 100%;
+	border-radius: 100px;
+	color: #696969;
+	font-size: 18px;
+	font-weight: bold;
+	background-image: url(/cloud_left.png);
+	background-size: 100% 100%;
+	background-position: center center;
+}
+.BookPage_preview_others_feeling_msg textarea {
+	background-color: white;
+	padding: 20px;
+	width: 100%;
+	float: right;
+	color: #696969;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 10px;
+	border: medium solid #696969;
+}
+
+.writingBookPage_editing {
+	width: 100%;
+}
+.editing_topMenu {
+	width: 96%;
+	margin: 40px auto 30px auto;
+}
+.editing_topMenu a {
+	color: white; 
+	background-color: #696969;
+	border-radius: 10px;
+	font-size: 26px;
+	font-weight: bold;
+	transition: all 1s;
+	padding: 10px 40px;
+}
+.editing_topMenu a:hover {
+	background-color: #00BFFF;
+}
+.editing_topMenu_li {
+	float: left;
+	margin-right: 3%;
+}
+.editing_topMenu_workingCondition {
+	color: red;
+	font-size: 26px;
+	font-weight: bold;
+}
+.editing_left {
+	width: 30%;
+	margin: 0 auto;
+	float: left;
+	padding-left: 15px;
+}
+.editing_left_naration {
+	font-size: 20px; 
+	font-weight: bold;
+	margin-bottom: 15px;
+	color: white;
+}
+.editing_left_naration input {
+	font-size: 20px; 
+	color: white;
+}
+.editing_left select {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	color: #696969;
+	font-size: 20px; 
+	width: 250px;
+	font-weight: bold;
+	padding: 10px 15px;
+	margin-bottom: 15px;
+	border-radius: 10px;
+}
+.editing_left_add_character {
+	margin-top: 10px;
+}
+.editing_left_add_character a {
+	background-color: white;
+	color: #696969;
+	font-size: 20px; 
+	font-weight: bold;
+	padding: 10px 55px;
+	border-radius: 10px;
+	transition: all 1s;
+}
+.editing_left_add_character a:hover {
+	background-color: #00BFFF;
+}
+.editing_middle {
+	float:left;
+	width: 50%;
+	margin: 15px auto;
+}
+.editing_middle textarea {
+	width: 100%;
+	height: 170px;
+	border-radius: 10px;
+	color: #696969;
+	font-size: 18px; 
+	font-weight: bold;
+	padding: 10px; 
+}
+.editing_right {
+	float: left;
+	width: 20%;
+	margin: 15px auto;
+}
+.chat_submit button {
+	background-color: rgba(0, 0, 0, 0.0);
+	border-style: none;
+	padding-left: 30px;
+	padding-top: 20px;
+}
+.chat_submit i{
+	color: rgba(64,224,208,1.0);
+	transition: all 1s;
+	cursor: pointer;
+	font-size: 90px;
+	padding: 10px 0 0 40px;
+}
+.chat_submit i:hover {
+	color: #0000CD;
+}
+
+/* 登場人物追加ページ ================================ */
+.addCharacterPage_content h1 {
+	text-align: center;
+	color: white;
+	margin-top: 140px;
+	font-size: 44px;
+}
+.add_character_box {
+	width: 80%;
+	margin: 40px auto;
+	background-color: #696969;
+	border-radius: 10px;
+}
+.add_name_top {
+	float: left;
+	width: 50%;
+	margin: 0 auto;
+}
+.add_name_top input {
+	color: #696969;
+	font-size: 18px; 
+	font-weight: bold;
+	padding: 5px 10px; 
+	width: 400px;
+	border-radius: 10px; 
+	margin: 40px 0 0 60px;
+}
+.add_name_detail {
+	float: left;
+	width: 50%;
+	margin: 0 auto;
+}
+.add_name_detail textarea {
+	color: #696969;
+	font-size: 18px; 
+	font-weight: bold;
+	padding: 5px 10px; 
+	width: 400px;
+	height: 80px; 
+	border-radius: 10px; 
+	margin: 15px 0 0 0;
+}
+.add_name_btn input {
+	display: inline-block;
+	margin: 20px 0 15px 36%;
+	color: white; 
+	background-color: #00BFFF;
+	font-size: 20px;
+	font-weight: bold;
+	transition: all 1s; 
+	padding: 15px 60px;
+	border: none; 
+	border-radius: 10px; 
+	box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+}
+.add_name_btn input:hover {
+	background-color: #0000CD;
+}
+.edit_character_space {
+	margin-top: 20px;
+}
+.edit_character_box {
+	width: 90%;
+	margin: 20px auto;
+	background-color: #696969;
+	border-radius: 10px;
+}
+.edit_character_number {
+	font-size: 48px;
+	height: 100%;
+	font-weight: bold;
+	color: white; 
+	float: left;
+	margin: 25px 20px 15px 15px;
+}
+.edit_character_name {
+	float: left;
+	margin: 15px 20px 15px 10px;
+}
+.edit_character_name1 input {
+	color: #696969;
+	font-size: 16px; 
+	font-weight: bold;
+	padding: 5px 10px; 
+	width: 300px;
+	border-radius: 10px; 
+}
+.edit_character_name2 {
+	color: white;
+	font-size: 16px; 
+	font-weight: bold;
+	margin-top: 10px;
+}
+.edit_character_name2 input {
+	color: white;
+	font-size: 16px; 
+	font-weight: bold;
+}
+.edit_character_explain {
+	float: left;
+}
+.edit_character_explain textarea {
+	color: #696969;
+	font-size: 16px; 
+	font-weight: bold;
+	padding: 5px 10px; 
+	width: 400px;
+	height: 80px; 
+	border-radius: 10px; 
+	margin: 15px 0;
+}
+.edit_character_btn {
+	float: left;
+	margin-left: 8%;
+}
+.edit_character_btn input {
+	margin-top: 30px;
+	color: white; 
+	background-color: #00BFFF;
+	font-size: 20px;
+	font-weight: bold;
+	transition: all 1s; 
+	padding: 15px 60px;
+	border: none; 
+	border-radius: 10px; 
+	box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+}
+.edit_character_btn input:hover {
+	background-color: #0000CD;
+}
+
+/* スマホ用画面 ================================================ */
+@media all and (max-width: 1000px) {
+
+.BookPage_preview_main_msg_read {
+	background-color: #00CED1;
+	padding: 20px;
+	width: 75%;
+	float: right;
+	margin: 0 60px 0 0;
+	position: relative;
+	display: inline-block;
+	min-width: 120px;
+	max-width: 100%;
+	border-radius: 10px;
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	border: none;
+}
+.BookPage_preview_main_who {
+	background-color: #00CED1;
+	padding: 20px;
+	width: 15%;
+	text-align: center;
+	margin-top: 0;
+	float: right;
+	border-radius: 10px;
+	color: white;
+	font-size: 26px;
+	font-weight: bold;
+}
+.BookPage_preview_main_feeling_msg {
+	padding: 50px 120px 140px 120px;
+	width: 75%;
+	float: right;
+	margin: 0 60px 0 0;
+	position: relative;
+	display: inline-block;
+	min-width: 120px;
+	max-width: 100%;
+	border-radius: 100px;
+	font-size: 30px;
+	font-weight: bold;
+	background-image: url(/cloud_right.png);
+	color: #00CED1;
+	background-size: 100% 100%;
+	background-position: center center;
+}
+.BookPage_preview_feeling_who {
+	background-color: #00CED1;
+	padding: 20px;
+	width: 15%;
+	text-align: center;
+	margin-top: 10%;
+	float: right;
+	border-radius: 10px;
+	color: white;
+	font-size: 26px;
+	font-weight: bold;
+}
+.BookPage_preview_others_msg {
+	background-color: white;
+	padding: 20px;
+	width: 75%;
+	float: left;
+	margin: 0 0 0 60px;
+	position: relative;
+	display: inline-block;
+	min-width: 120px;
+	max-width: 100%;
+	border-radius: 10px;
+	color: #696969;
+	font-size: 30px;
+	font-weight: bold;
+	border: none;
+}
+.BookPage_preview_others_who {
+	background-color: white;
+	padding: 20px;
+	width: 15%;
+	text-align: center;
+	margin-top: 0;
+	float: left;
+	border-radius: 10px;
+	color: #696969;
+	font-size: 26px;
+	font-weight: bold;
+}
+.BookPage_preview_others_feeling_msg {
+	padding: 130px 100px 50px 120px;
+	width: 75%;
+	float: right;
+	margin: 0 60px 0 0;
+	position: relative;
+	display: inline-block;
+	min-width: 120px;
+	max-width: 100%;
+	border-radius: 100px;
+	color: #696969;
+	font-size: 30px;
+	font-weight: bold;
+	background-image: url(/cloud_left.png);
+	background-size: 100% 100%;
+	background-position: center center;
+}
+.BookPage_preview_othersFeeling_who {
+	background-color: white;
+	padding: 20px;
+	width: 15%;
+	text-align: center;
+	margin-top: 3%;
+	float: left;
+	border-radius: 10px;
+	color: #696969;
+	font-size: 26px;
+	font-weight: bold;
+}
+.BookPage_preview_others_back_read {
+	width: 100%;
+	margin: 0 auto;
+	padding: 40px 80px;
+	color: #696969;
+	font-size: 28px;
+	font-weight: bold;
+	background-image: url(/back_descript.png);
+	background-size: 100% 100%;
+	background-position: center center;
+}
+.BookPage_preview_others_back {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	color: #696969;
+	font-size: 18px;
+	font-weight: bold;
+	background-image: url(/back_descript.png);
+	background-size: 100% 100%;
+	background-position: center center;
+}
+.editing_topMenu a {
+	color: white; 
+	background-color: #696969;
+	border-radius: 10px;
+	font-size: 30px;
+	font-weight: bold;
+	transition: all 1s;
+	padding: 10px 80px;
+}
+.editing_topMenu_li {
+	float: left;
+	margin: 20px 3% 40px;
+}
+.editing_topMenu {
+	width: 96%;
+	margin: 0px auto 0px auto;
+}
+.editing_left_naration {
+	font-size: 30px; 
+	font-weight: bold;
+	margin-bottom: 30px;
+	color: white;
+}
+.editing_left_naration input {
+	font-size: 50px; 
+	color: white;
+}
+.editing_left select {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	color: #696969;
+	font-size: 30px; 
+	width: 250px;
+	font-weight: bold;
+	padding: 15px 15px;
+	margin-bottom: 30px;
+	border-radius: 10px;
+}
+.editing_left_add_character {
+	margin-top: 10px;
+}
+.editing_left_add_character a {
+	background-color: white;
+	color: #696969;
+	font-size: 30px; 
+	font-weight: bold;
+	padding: 15px 20px;
+	border-radius: 10px;
+	transition: all 1s;
+}
+.editing_middle {
+	float:left;
+	width: 50%;
+	margin: 40px auto;
+}
+.editing_middle textarea {
+	width: 100%;
+	height: 300px;
+	border-radius: 10px;
+	color: #696969;
+	font-size: 28px; 
+	font-weight: bold;
+	padding: 20px; 
+}
+.editing_right {
+	float: left;
+	width: 20%;
+	margin: 15px auto;
+}
+.chat_submit button {
+	background-color: rgba(0, 0, 0, 0.0);
+	border-style: none;
+	padding-left: 30px;
+	padding-top: 100px;
+}
+.chat_submit i{
+	color: rgba(64,224,208,1.0);
+	transition: all 1s;
+	cursor: pointer;
+	font-size: 90px;
+	padding: 10px 0 0 40px;
+}
+	
+}

@@ -1,0 +1,84 @@
+<div class="authorRegisterPage">
+	<div class="authorRegister_content">
+		<br><br>
+		<h1>本を新たに作成</h1>
+		<h5>登録情報は登録後も編集することが可能です。</h5>
+		<div class="form-error">
+            <%= @error_message %>
+        </div>
+	</div>
+	<%= form_tag("/users/#{@user.id}/create_book", {multipart: true}) do %>
+	<div class="loginInfo_form">
+		<div class="loginInfo_form_content">
+			<h3>本の基本情報</h3>
+			<div class="loginInfo_form_box">
+				<div class="loginInfo_form_koumoku">
+					タイトル&emsp;<span style="color: red">*</span>
+				</div>
+				<div class="loginInfo_form_input">
+					<input name="book_title" type="text" placeholder="本のタイトルをご入力ください"value="<%= @book.book_title%>" required>
+				</div>
+			</div>
+			<div class="loginInfo_form_box">
+				<div class="loginInfo_form_koumoku">
+					主人公&emsp;<span style="color: red">*</span>
+				</div>
+				<div class="loginInfo_form_input">
+					<input name="character_name" type="text" placeholder="主人公の名前をご入力ください。"value="<%= @character.character_name %>" required>
+				</div>
+			</div>
+			<div class="loginInfo_form_box">
+				<div class="loginInfo_form_koumoku">
+					本の紹介文&emsp;<span style="color: red">*</span>
+				</div>
+				<div class="newBook_form_input">
+					<textarea name="book_description"placeholder="本のあらすじや概要などを記載ください。"><%= @book.book_description %></textarea>
+				</div>
+			</div>
+			<br>
+		</div>
+	</div>
+	<div class="loginInfo_form">
+		<div class="loginInfo_form_content">
+			<h3>ジャンルを選択</h3>
+			<div class="loginInfo_form_category">
+				<div class="loginInfo_form_category_left">
+					<div class="categorySelect"><input type="radio" name="book_category" value="1" <%if @book.book_category == 1 %>checked="checked"<%end%>required>恋愛</div>
+					<div class="categorySelect"><input type="radio" name="book_category" value="2" <%if @book.book_category == 2 %>checked="checked"<%end%>required>ミステリー・サスペンス</div>
+					<div class="categorySelect"><input type="radio" name="book_category" value="3" <%if @book.book_category == 3 %>checked="checked"<%end%>required>実用・エッセイ</div>
+					<div class="categorySelect"><input type="radio" name="book_category" value="4" <%if @book.book_category == 4 %>checked="checked"<%end%>required>ファンタジー・ＳＦ・冒険</div>
+					<div class="categorySelect"><input type="radio" name="book_category" value="5" <%if @book.book_category == 5 %>checked="checked"<%end%>required>青春･友情</div>
+				</div>
+				<div class="loginInfo_form_category_right">
+					<div class="categorySelect"><input type="radio" name="book_category" value="6" <%if @book.book_category == 6 %>checked="checked"<%end%>required>ノンフィクション・実話</div>
+					<div class="categorySelect"><input type="radio" name="book_category" value="7" <%if @book.book_category == 7 %>checked="checked"<%end%>required>ホラー・オカルト</div>
+					<div class="categorySelect"><input type="radio" name="book_category" value="8" <%if @book.book_category == 8 %>checked="checked"<%end%>required>歴史・時代</div>
+					<div class="categorySelect"><input type="radio" name="book_category" value="9" <%if @book.book_category == 9 %>checked="checked"<%end%>required>コメディ</div>
+					<div class="categorySelect"><input type="radio" name="book_category" value="10" <%if @book.book_category == 10 %>checked="checked"<%end%>required>童話</div>
+					<div class="categorySelect"><input type="radio" name="book_category" value="11" <%if @book.book_category == 11 %>checked="checked"<%end%>required>その他</div>
+				</div>
+				<div class="clear"></div>
+				<div class="input_category_others">
+					<input name="category_others" type="text" placeholder="その他を選択された方はジャンルをご入力ください"value="<%= @book.category_others %>">
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="newBook_image_register">
+		<div class="newBook_image_register_content">
+			<h3>本のイメージ画像を登録</h3>
+			<h5>登録画像は登録後も編集することが可能です。</h5>
+			<div class="newBook_image_register_image">
+				<input name="book_image" type="file">
+			</div>
+		</div>
+	</div>
+	<div class="register_submit">
+		<br>
+		<div class="register_submit_a">
+			<input type="submit" value="次にすすむ">
+		</div>
+		<br>
+	</div>
+	<%end%>
+</div>

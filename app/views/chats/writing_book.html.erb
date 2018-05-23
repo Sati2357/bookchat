@@ -1,0 +1,221 @@
+<div class="writingBookPage">
+	<div class="writingBookPage_preview" style="background-image: url(/book_images/<%= @book.book_image %>)">
+		<% @script.each do |script| %>
+		<div class="writingBookPage_preview_content" id="script<%=script.id%>">
+		  <%if script.character.present? %>
+		  <% if script.character.main == 1 %>
+			<% if script.script_feeling == 1 %>
+			<div class="BookPage_preview_main BookPage_preview_box">
+				<div class="BookPage_preview_main_who">
+					<%= script.character.character_name %>
+				</div>
+				<%= form_tag("/chats/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/#{script.id}/edit_script") do %>
+				<div class="BookPage_preview_main_msg">
+					<textarea name ="script_content"><%= script.content %></textarea>
+					<div class="script_edit_link">
+						<input type="radio" name="back_description" value="0">情景描写
+						<select name="who_script" id="who_script_edit" class="padding_rightSpace">
+							<option value="">誰のセリフ？　　　▼</option>
+							<% @character.each do |character| %>
+								<option value="<%= character.id %>"<%if script.character_id == character.id%>selected<%end%>><%= character.character_name %></option>
+							<%end%>
+						</select>
+						<select name="who_feeling" id="who_feeling_edit" class="padding_rightSpace">
+							<option value="">誰の気持ち・心理？▼</option>
+							<% @character.each do |character| %>
+								<option value="<%= character.id %>"><%= character.character_name %></option>
+							<%end%>
+						</select>
+						<input type="submit" value="編集を反映">
+						<%= link_to("削除する","/chats/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/#{script.id}/delete_script",{method: "post"})%>
+					</div>
+				</div>
+				<%end%>
+			</div>
+			<div class="clear_right clear"></div>
+			<%else%>
+			<div class="BookPage_preview_main_feeling BookPage_preview_box">
+				<div class="BookPage_preview_feeling_who">
+					<%= script.character.character_name %>
+				</div>
+				<%= form_tag("/chats/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/#{script.id}/edit_script") do %>
+				<div class="BookPage_preview_main_feeling_msg">
+					<textarea name ="script_content"><%= script.content %></textarea>
+					<div class="script_edit_link">
+						<input type="radio" name="back_description" value="0">情景描写
+						<select name="who_script" id="who_script_edit" class="padding_rightSpace">
+							<option value="">誰のセリフ？　　　▼</option>
+							<% @character.each do |character| %>
+								<option value="<%= character.id %>"><%= character.character_name %></option>
+							<%end%>
+						</select>
+						<select name="who_feeling" id="who_feeling_edit" class="padding_rightSpace">
+							<option value="">誰の気持ち・心理？▼</option>
+							<% @character.each do |character| %>
+								<option value="<%= character.id %>"<%if script.character_id == character.id%>selected<%end%>><%= character.character_name %></option>
+							<%end%>
+						</select>
+						<input type="submit" value="編集を反映">
+						<%= link_to("削除する","/chats/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/#{script.id}/delete_script",{method: "post"})%>
+					</div>
+				</div>
+				<%end%>
+			</div>
+			<%end%>
+			<div class="clear_right clear"></div>
+		  <% else %>
+			<% if script.script_feeling == 1 %>
+			<div class="BookPage_preview_others BookPage_preview_box">
+				<div class="BookPage_preview_others_who">
+					<%= script.character.character_name %>
+				</div>
+				<%= form_tag("/chats/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/#{script.id}/edit_script") do %>
+				<div class="BookPage_preview_others_msg">
+					<textarea name ="script_content"><%= script.content %></textarea>
+					<div class="script_edit_link">
+						<input type="radio" name="back_description" value="0">情景描写
+						<select name="who_script" id="who_script_edit" class="padding_rightSpace">
+							<option value="">誰のセリフ？　　　▼</option>
+							<% @character.each do |character| %>
+								<option value="<%= character.id %>"<%if script.character_id == character.id%>selected<%end%>><%= character.character_name %></option>
+							<%end%>
+						</select>
+						<select name="who_feeling" id="who_feeling_edit" class="padding_rightSpace">
+							<option value="">誰の気持ち・心理？▼</option>
+							<% @character.each do |character| %>
+								<option value="<%= character.id %>"><%= character.character_name %></option>
+							<%end%>
+						</select>
+						<input type="submit" value="編集を反映">
+						<%= link_to("削除する","/chats/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/#{script.id}/delete_script",{method: "post"})%>
+					</div>
+				</div>
+				<%end%>
+			</div>
+			<div class="clear"></div>
+			<% elsif script.script_feeling == 2 %>
+			<div class="BookPage_preview_feeling BookPage_preview_box">
+				<div class="BookPage_preview_othersFeeling_who">
+					<%= script.character.character_name %>
+				</div>
+				<%= form_tag("/chats/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/#{script.id}/edit_script") do %>
+				<div class="BookPage_preview_others_feeling_msg">
+					<textarea name ="script_content"><%= script.content %></textarea>
+					<div class="script_edit_link">
+						<input type="radio" name="back_description" value="0">情景描写
+						<select name="who_script" id="who_script_edit" class="padding_rightSpace">
+							<option value="">誰のセリフ？　　　▼</option>
+							<% @character.each do |character| %>
+								<option value="<%= character.id %>"><%= character.character_name %></option>
+							<%end%>
+						</select>
+						<select name="who_feeling" id="who_feeling_edit" class="padding_rightSpace">
+							<option value="">誰の気持ち・心理？▼</option>
+							<% @character.each do |character| %>
+								<option value="<%= character.id %>"<%if script.character_id == character.id%>selected<%end%>><%= character.character_name %></option>
+							<%end%>
+						</select>
+						<input type="submit" value="編集を反映">
+						<%= link_to("削除する","/chats/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/#{script.id}/delete_script",{method: "post"})%>
+					</div>
+				</div>
+				<%end%>
+			</div>
+			<div class="clear_right clear"></div>
+			<%end%>
+		  <%end%>
+		  <%end%>
+		  <%if script.script_feeling == 0 %>
+			<%= form_tag("/chats/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/#{script.id}/edit_script") do %>
+				<div class="BookPage_preview_others_back BookPage_preview_box">
+					<textarea name ="script_content"><%= script.content %></textarea>
+					<div class="script_edit_link back_edit_link">
+						<input type="radio" name="back_description" value="0" checked>情景描写
+						<select name="who_script" id="who_script_edit" class="padding_rightSpace">
+							<option value="">誰のセリフ？　　　▼</option>
+							<% @character.each do |character| %>
+								<option value="<%= character.id %>"><%= character.character_name %></option>
+							<%end%>
+						</select>
+						<select name="who_feeling" id="who_feeling_edit" class="padding_rightSpace">
+							<option value="">誰の気持ち・心理？▼</option>
+							<% @character.each do |character| %>
+								<option value="<%= character.id %>"><%= character.character_name %></option>
+							<%end%>
+						</select>
+						<input type="submit" value="編集を反映">
+						<%= link_to("削除する","/chats/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/#{script.id}/delete_script",{method: "post"})%>
+					</div>
+				</div>
+			<%end%>
+		  <%end%>
+		</div>
+		<%end%>
+		<div id="edit_script_final"></div>
+	</div>
+	<div class="writingBookPage_editing">
+		<div class="editing_topMenu">
+			<div class="editing_topMenu_workingCondition editing_topMenu_li">
+				<% if @chat.open_unopen == 2%>
+					公開中
+				<%else%>
+					執筆中
+				<%end%>
+			</div>
+			<div class="editing_topMenu_openBook editing_topMenu_li">
+				<%= link_to("話一覧", "/users/#{@user.id}/#{@book.id}/book_table_author")%>
+			</div>
+			<div class="editing_topMenu_BookInfoEdit editing_topMenu_li">
+				<%= link_to("次話にすすむ", "/users/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/confirm_chapter", {method: "post"})%>
+			</div>
+			<div class="editing_topMenu_nextChapter editing_topMenu_li">
+				<% if @chat.open_unopen == 2%>
+					<%= link_to("この話を公開中止", "/chats/#{@user.id}/#{@chat.book_id}/#{@chat.chapter_id}/book_unopen", {method: "post"})%>
+				<%else%>
+					<%= link_to("この話を公開する", "/chats/#{@user.id}/#{@chat.book_id}/#{@chat.chapter_id}/book_open", {method: "post"})%>
+				<%end%>
+			</div>
+			<div class="editing_topMenu_nextChapter editing_topMenu_li">
+				<%= link_to("本の情報を編集", "/users/#{@user.id}/#{@book.id}/#{@chat.id}/edit_book_register")%>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<%= form_tag("/chats/#{@user.id}/#{@book.id}/#{@chat.id}/creat_script") do %>
+		<div class="editing_left">
+			<div class="editing_left_naration">
+				<input type="radio" name="back_description" value="0"> 情景描写
+			</div>
+			<div class="editing_left_who_script">
+				<select name="who_script" id="who_script_edit">
+					<option value="">誰のセリフ？　　　▼</option>
+					<% @character.each do |character| %>
+						<option value="<%= character.id %>"><%= character.character_name %></option>
+					<%end%>
+				</select>
+			</div>
+			<div class="editing_left_who_feeling">
+				<select name="who_feeling" id="who_feeling_edit">
+					<option value="">誰の気持ち・心理？▼</option>
+					<% @character.each do |character| %>
+						<option value="<%= character.id %>"><%= character.character_name %></option>
+					<%end%>
+				</select>
+			</div>
+			<div class="editing_left_add_character">
+				<%= link_to("登場人物を追加", "/chats/#{@user.id}/#{@book.id}/#{@chat.chapter_id}/add_chracter")%>
+			</div>
+		</div>
+		<div class="editing_middle">
+			<textarea class="editing_bookScript" name="script"placeholder="内容をご入力ください。&#13;&#10;投稿した内容は自動的に保存されます。&#13;&#10;「話」を変えたい時は上の「次話にすすむ」をクリックください。" required><%= @content %></textarea>
+		</div>
+		<div class="editing_right">
+			<div class="chat_submit">
+				<button type="submit">
+					<i class="fa fa-pencil fa-3x" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
+		<%end%>
+		<div class="clear"></div>
+	</div>
+</div>

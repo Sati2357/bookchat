@@ -1,0 +1,218 @@
+<div class="reader_centralPage">
+	<div class="reader_centralContent">
+		<div class="reader_centralTopMenu">
+			<div class="reader_centralClickSpace">
+				<div class="reader_centralClick active" id="click_reading">
+					読書中の作品
+				</div>
+			</div>
+			<div class="reader_centralClickSpace">
+				<div class="reader_centralClick" id="click_finishRead">
+					読破作品
+				</div>
+			</div>
+			<div class="reader_centralClickSpace">
+				<div class="reader_centralClick" id="click_follow">
+					作家一覧
+				</div>
+			</div>
+			<div class="reader_centralClickSpace">
+				<div class="reader_centralClick" id="click_comment">
+					自分のコメント
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="reader_centralReadingBook click_reading column-box">
+			<% @reading.each do |read| %>
+				<div class="topwrapper2_row_content_size">
+					<a href="/<%= read.book_id %>/<%= read.chapter_id %>/read_chapter">
+					<div class="topwrapper2_row_content" style="background-image: url(/book_images/<%= read.reading_book.book_image%>)">
+					  <div class="zoom-check">
+						<div class="zoom-black">
+							<h3><%= read.reading_book.book_title %></h3>
+							<h5><%= read.reading_book.book_user.user_name %>の作品</h5>
+						</div>
+						<div class="zoom-black-hover">
+							<h3><%= read.reading_book.book_title %></h3>
+							<h5><%= read.reading_book.book_user.user_name %></h5>
+							<% if read.reading_book.book_user.open_unopen == "1" %>
+								<p class="aozora_p">青空文庫</p>
+							<%end%>
+							<div class="zoom-black_hide">
+								<p><%= read.reading_book.book_description.truncate(30) %></p>
+							</div>
+							<% if read.reading_reviewAll.present? %>
+								<% percent = read.reading_reviewAll.sum(:point) / read.reading_reviewAll.count %>
+									<div class="topwrapper2_row_contentReview">
+										<div class="topReview_star">
+											<% if percent >= 4 %>
+												★★★★★
+											<% elsif percent >=3 && percent < 4 %>
+												★★★★☆
+											<% elsif percent >=2 && percent < 3 %>
+												★★★☆☆
+											<% elsif percent >1 && percent < 2 %>
+												★★☆☆☆
+											<% elsif percent == 1 %>
+												★☆☆☆☆
+											<%end%>
+										</div>
+										<div class="topReview_quant">
+											<%= read.reading_reviewAll.count %>件のレビュー 
+										</div>
+										<div class="clear"></div>
+									</div>
+							<%end%>
+						</div>
+					  </div>
+					</div>  
+					</a>
+					<%= form_tag("/users/#{@current_user.id}/#{read.book_id}/likeReading_destroy") do %>
+						<button type="submit">
+							<div class="bookLike_delete">
+								<i class="fa fa-times-circle-o"></i> 
+							</div>
+						</button>
+					<%end%>
+				</div>
+			<%end%>
+			<div class="clear"></div>
+		</div>
+		<div class="reader_centralFinishReading click_finishRead column-box">
+			<% @readed.each do |read2| %>
+				<a href="/<%= read2.book_id %>/<%= read2.chapter_id %>/read_chapter">
+					<div class="topwrapper2_row_content_size">
+					<div class="topwrapper2_row_content" style="background-image: url(/book_images/<%= read2.reading_book.book_image%>)">
+					  <div class="zoom-check">
+						<div class="zoom-black">
+							<h3><%= read2.reading_book.book_title %></h3>
+							<h5><%= read2.reading_book.book_user.user_name %>の作品</h5>
+						</div>
+						<div class="zoom-black-hover">
+							<h3><%= read2.reading_book.book_title %></h3>
+							<h5><%= read2.reading_book.book_user.user_name %></h5>
+							<% if read2.reading_book.book_user.open_unopen == "1" %>
+								<p class="aozora_p">青空文庫</p>
+							<%end%>
+							<div class="zoom-black_hide">
+								<p><%= read2.reading_book.book_description.truncate(55) %></p>
+							</div>
+							<% if read2.reading_reviewAll.present? %>
+								<% percent = read2.reading_reviewAll.sum(:point) / read2.reading_reviewAll.count %>
+									<div class="topwrapper2_row_contentReview">
+										<div class="topReview_star">
+											<% if percent >= 4 %>
+												★★★★★
+											<% elsif percent >=3 && percent < 4 %>
+												★★★★☆
+											<% elsif percent >=2 && percent < 3 %>
+												★★★☆☆
+											<% elsif percent >1 && percent < 2 %>
+												★★☆☆☆
+											<% elsif percent == 1 %>
+												★☆☆☆☆
+											<%end%>
+										</div>
+										<div class="topReview_quant">
+											<%= read2.reading_reviewAll.count %>件のレビュー 
+										</div>
+										<div class="clear"></div>
+									</div>
+							<%end%>
+						</div>
+					  </div>
+					</div>  
+					</div>
+				</a>
+			<%end%>
+			<div class="clear"></div>
+		</div>
+		<div class="reader_centralFollowAuthor click_follow column-box">
+			<div class="authorMenu_writers">
+				<% @likes.each do |like| %>
+					<a href="/<%= like.author_id %>/author_introduce">
+						<div class="authorMenu_eachWriters">
+							<img src ="<%="/user_images/#{like.like_author.user_image}"%>" alt = "">
+							<div class="authorMenu_eachWriters_name">
+								<%= like.like_author.user_name %>
+							</div>
+						</div>
+					</a>
+				<%end%>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="reader_centralMyComment click_comment column-box">
+			<% @comments.each do |comment| %>
+			<div class="book_commentEachContent" id="comment<%=comment.id%>">
+				<div class="book_commentEachContent_up">
+					<div class="book_commentEachContent_name">
+						<%= comment.comment_user.user_name %>
+					</div>
+					<a href="/<%= comment.book_id %>/<%= comment.chapter_id %>/read_chapter">
+						<div class="book_commentEachContent_bookInfo">
+							<%= comment.comment_book.book_title %>　<%= comment.chapter_id%>話: <%= comment.comment_chat.chapter_title %>
+						</div>
+					</a>
+					<div class="book_commentEachContent_delete">
+						<%= link_to("削除","/users/#{@current_user.id}/#{comment.book_id}/#{comment.chapter_id}/#{comment.id}/central_commentDestroy", {method: "post"}) %>
+					</div>
+					<div class="clear clear-right"></div>
+				</div>
+				<div class="book_commentEachContent_down">
+					<div class="book_commentEachContent_downComent">
+						<%= comment.content %>
+					</div>
+					<div class="book_commentEachContent_goodBad">
+							<%if comment.comment_like %>
+								<%if comment.comment_like.good == 1 %>
+								 <%= form_tag("/home/#{@current_user.id}/#{comment.book_id}/#{comment.chapter_id}/#{comment.id}/good_destroy") do %>
+									<button type="submit">
+										<div class="book_commentEachContent_good color_blue">
+											<i class="fa fa-thumbs-up"></i>　<%= comment.good %>
+										</div>
+									</button>
+								 <%end%>
+								<%else%>
+									<div class="book_commentEachContent_good">
+											<i class="fa fa-thumbs-up"></i>　<%= comment.good %>
+										</div>
+								<%end%>
+								<% if comment.comment_like.bad == 1 %>
+								 <%= form_tag("/home/#{@current_user.id}/#{comment.book_id}/#{comment.chapter_id}/#{comment.id}/bad_destroy") do %>
+									<button type="submit">
+										<div class="book_commentEachContent_bad color_blue">
+											<i class="fa fa-thumbs-down"></i>　<%= comment.bad %>
+										</div>
+									</button>
+								 <%end%>
+								<%else%>
+									<div class="book_commentEachContent_bad">
+										<i class="fa fa-thumbs-down"></i>　<%= comment.bad %>
+									</div>
+								<%end%>
+							<%else%>
+								<%= form_tag("/home/#{@current_user.id}/#{comment.book_id}/#{comment.chapter_id}/#{comment.id}/good_comment") do %>
+									<button type="submit">
+										<div class="book_commentEachContent_good">
+											<i class="fa fa-thumbs-up"></i>　<%= comment.good %>
+										</div>
+									</button>
+								<%end%>
+								<%= form_tag("/home/#{@current_user.id}/#{comment.book_id}/#{comment.chapter_id}/#{comment.id}/bad_comment") do %>
+									<button type="submit">
+										<div class="book_commentEachContent_bad">
+											<i class="fa fa-thumbs-down"></i>　<%= comment.bad %>
+										</div>
+									</button>
+								<%end%>
+							<%end%>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<%end%>
+		</div>
+	</div>
+</div>

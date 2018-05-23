@@ -1,0 +1,47 @@
+<div class="MangerPage">
+	<div class="MangerPage_content">
+		<h1>管理画面</h1>
+		<div class="ManagerTable">
+			<table class="ManagerTable_content"border="3" cellpadding="2" cellspacing="0" bordercolor="#FFFFFF">
+				<tr class="ManagerWhat">
+					<th>id</th>
+					<th>メール</th>
+					<th>ユーザー名</th>
+					<th>好きな言葉</th>
+					<th>作品の種類</th>
+					<th>公開・非公開</th>
+					<th>退会</th>
+				</tr>
+				<% @users.each do |user| %>
+				<tr class="ManagerWhat2">
+					<th><%= user.id %></th>
+					<th><%= user.email %></th>
+					<th><%= user.user_name %></th>
+					<th><%= user.phrase %></th>
+					<th class="MNG_btn">
+						<% if user.open_unopen == "1" %>
+							青空作品作家
+						<%else%>
+							<%= link_to("青空作品にする","/users/#{@current_user.id}/#{user.id}/aozora", {method: "post"}) %>
+						<%end%>
+					</th>
+					<th class="MNG_btn">
+						<% if user.open_unopen == "2" %>
+							<%= link_to("公開にする","/users/#{@current_user.id}/#{user.id}/open_user", {method: "post"}) %>
+						<%else%>
+							<%= link_to("非公開にする","/users/#{@current_user.id}/#{user.id}/unopen_user", {method: "post"}) %>
+						<%end%>
+					</th>
+					<th class="MNG_btn">
+						<% if user.open_unopen == "3" %>
+							退会済み
+						<%else%>
+							<%= link_to("退会にする","/users/#{@current_user.id}/#{user.id}/MNG_userDelete", {method: "post"}) %>
+						<%end%>
+					</th>
+				</tr>
+				<%end%>
+			</table>
+		</div>
+	</div>
+</div>

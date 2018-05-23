@@ -1,0 +1,64 @@
+<head>
+	<title>
+		<%if @number==1 %>恋愛<%elsif @number==2%>ミステリー・サスペンス<%elsif @number==3%>実用・エッセイ<%elsif @number==4%>ファンタジー・ＳＦ・冒険<%elsif @number==5%>青春･友情<%elsif @number==6%>ノンフィクション・実話<%elsif @number==7%>ホラー・オカルト<%elsif @number==8%>歴史・時代<%elsif @number==9%>コメディ<%elsif @number==10%>童話<%elsif @number==11%>様々なジャンルの<%end%>
+		小説を無料でチャット形式で読める！小説投稿サイトBookChat
+	</title>
+	<meta name="description" content="<%if @number==1 %>恋愛<%elsif @number==2%>ミステリー・サスペンス<%elsif @number==3%>実用・エッセイ<%elsif @number==4%>ファンタジー・ＳＦ・冒険<%elsif @number==5%>青春･友情<%elsif @number==6%>ノンフィクション・実話<%elsif @number==7%>ホラー・オカルト<%elsif @number==8%>歴史・時代<%elsif @number==9%>コメディ<%elsif @number==10%>童話<%elsif @number==11%>様々なジャンルの<%end%>小説を無料で好きなだけ読める！作家登録することで気軽に簡単に<%if @number==1 %>恋愛<%elsif @number==2%>ミステリー・サスペンス<%elsif @number==3%>実用・エッセイ<%elsif @number==4%>ファンタジー・ＳＦ・冒険<%elsif @number==5%>青春･友情<%elsif @number==6%>ノンフィクション・実話<%elsif @number==7%>ホラー・オカルト<%elsif @number==8%>歴史・時代<%elsif @number==9%>コメディ<%elsif @number==10%>童話<%elsif @number==11%>様々なジャンルの<%end%>の作品を投稿することも可能。過去の青空文庫の名作もチャット形式で復活！">
+</head>
+<div class="eachCategoryPage">
+	<div class="eachCategoryPage_content">
+		<h1><%= @word %>の作品</h1>
+		<div class="eachCategoryPage_books">
+			<% @books.each do |book| %>
+				<a href="/<%= book.id %>/book_brief">
+				<div class="topwrapper2_row_content_size">
+					<div class="topwrapper2_row_content" style="background-image: url(/book_images/<%=book.book_image%>)">
+					  <div class="zoom-check">
+						<div class="zoom-black">
+							<h3><%= book.book_title %></h3>
+							<h5><%= book.book_user.user_name %>の作品</h5>
+						</div>
+						<div class="zoom-black-hover">
+							<h3><%= book.book_title %></h3>
+							<h5><%= book.book_user.user_name %>の作品</h5>
+							<%if book.book_category == 11 %>
+								<p class="category_othersName"><%= book.category_others %></p>
+							<%end%>
+							<% if book.book_user.open_unopen == "1" %>
+								<p class="aozora_p">青空文庫</p>
+							<%end%>
+							<div class="zoom-black_hide">
+								<p><%= book.book_description.truncate(40) %></p>
+							</div>
+							<% if book.book_reviewAll.present? %>
+								<% percent = book.book_reviewAll.sum(:point) / book.book_reviewAll.count %>
+									<div class="topwrapper2_row_contentReview">
+										<div class="topReview_star">
+											<% if percent >= 4 %>
+												★★★★★
+											<% elsif percent >=3 && percent < 4 %>
+												★★★★☆
+											<% elsif percent >=2 && percent < 3 %>
+												★★★☆☆
+											<% elsif percent >1 && percent < 2 %>
+												★★☆☆☆
+											<% elsif percent == 1 %>
+												★☆☆☆☆
+											<%end%>
+										</div>
+										<div class="topReview_quant">
+											<%= book.book_reviewAll.count %>件のレビュー 
+										</div>
+										<div class="clear"></div>
+									</div>
+							<%end%>
+						</div>
+					  </div>
+					</div>  
+				</div>
+				</a>
+			<%end%>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>

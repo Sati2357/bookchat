@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<script src="https://use.fontawesome.com/8c40c9b314.js"></script>
+	<meta name="google-site-verification" content="vx9SmIXCb-dobODCzHSPun34P3GXKehMp04-isEEYCc" />
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@Rishiryu1" />
+	<meta property="og:url" content="https://my-bookchat.com" />
+	<meta property="og:title" content="チャット型無料小説投稿サイトBookChat" />
+	<meta property="og:description" content="好きな作品を無料で好きなだけ読める！過去の青空文庫の名作もチャット形式で復活！" />
+	<meta property="og:image" content="https://my-bookchat.com/BookChat_logo.png" />
+  </head>
+  <body>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117552395-1"></script>
+  <script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+
+  	gtag('config', 'UA-117552395-1');
+  </script>
+  	<header>
+	<%if session[:user_id] %>
+		<div class="usualHeader">
+		  <div class="usualHeader_logo">
+			  <%= link_to image_tag('/BookChat_logo.png', { :border => '0', :alt => 'BookChat'}), "/" %>
+		  </div>
+		  <div class="usualHeader_share">
+			<a href="http://www.facebook.com/share.php?u=https://my-bookchat.com" target="_blank"><i class="fa fa-facebook-f fa-2x"></i></a>
+			<a href="http://twitter.com/share?text=本格派チャット型小説サイトBookChat&url=https://my-bookchat.com" rel="nofollow" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+		  </div>
+		  <ul class="dektop_topMenu usualHeader_ul">
+			  <li><%= link_to("#{@current_user.user_name.truncate(10)}様ページ","/users/#{@current_user.id}/reader_central")%></li>
+			  <li><%= link_to("作家一覧","/author_menu")%></li>
+			  <li><%= link_to("作品ジャンル","/category_all")%></li>
+		  </ul>
+		  <ul class="smartPhoneTopMenu usualHeader_ul">
+				<li class="teacher_header_name thm thn"><img src = "<%= "/user_images/#{@current_user.user_image}"%>"><span>MENU▼</span>
+					<ul class="sub thn">
+						  <li class="thn"><%= link_to("#{@current_user.user_name.truncate(10)}様ページ","/users/#{@current_user.id}/reader_central")%></li>
+						  <li class="thn"><%= link_to("作家一覧","/author_menu")%></li>
+						  <li class="thn"><%= link_to("作品ジャンル","/category_all")%></li>
+					</ul>
+				</li>
+		   </ul>
+		  <div class="clear clear_right"></div>
+	  </div>
+	<%else%>
+	  <div class="usualHeader">
+		  <div class="usualHeader_logo">
+			  <%= link_to image_tag('/BookChat_logo.png', { :border => '0', :alt => 'BookChat'}), "/" %>
+		  </div>
+		  <div class="usualHeader_share">
+			<a href="http://www.facebook.com/share.php?u=https://my-bookchat.com" target="_blank"><i class="fa fa-facebook-f fa-2x"></i></a>
+			<a href="http://twitter.com/share?text=本格派チャット型小説サイトBookChat&url=https://my-bookchat.com" rel="nofollow" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+		  </div>
+		  <ul class="dektop_topMenu usualHeader_ul">
+			  <li><%= link_to("作家一覧","/author_menu")%></li>
+			  <li><%= link_to("作品ジャンル","/category_all")%></li>
+			  <li><%= link_to("小説家登録","/author_register")%></li>
+			  <li><%= link_to("読者登録","/reader_register")%></li>
+			  <li><%= link_to("ログイン","/login_form")%></li>
+		  </ul>
+		  <ul class="smartPhoneTopMenu usualHeader_ul">
+				<li class="teacher_header_name thm thn"><span>MENU▼</span>
+					<ul class="sub thn">
+						  <li class="thn"><%= link_to("作家一覧","/author_menu")%></li>
+						  <li class="thn"><%= link_to("作品ジャンル","/category_all")%></li>
+						  <li class="thn"><%= link_to("本を書く","/author_register")%></li>
+						  <li class="thn"><%= link_to("読者登録","/reader_register")%></li>
+						  <li class="thn"><%= link_to("ログイン","/login_form")%></li>
+					</ul>
+				</li>
+		   </ul>
+		  <div class="clear clear_right"></div>
+	  </div>
+	<%end%>
+	</header>
+	
+	<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+	<%end%>
+	
+    <%= yield %>
+	<footer>
+		<div class="footer_content">
+			<div class="footer_left">
+				<div class="footer_left_content">
+					<div class="footer_left_msg">
+						ジャンル
+					</div>
+					<ul>
+						<li><%= link_to("青空文庫","/aozora_books")%></li>
+						<li><%= link_to("恋愛作品","/1/恋愛/category_love/each_category")%></li>
+						<li><%= link_to("実用・エッセイ","/3/実用・エッセイ/category_essay/each_category")%></li>
+						<li><%= link_to("SF・冒険","/4/ＳＦ・冒険/category_SF/each_category")%></li>
+					</ul>
+					<ul>
+						<li><%= link_to("青春・友情","/5/青春･友情/category_friend/each_category")%></li>
+						<li><%= link_to("ノンフィクション・実話","/6/ノンフィクション・実話/category_nonfiction/each_category")%></li>
+						<li><%= link_to("ホラー・オカルト","/7/ホラー・オカルト/category_horrow/each_category")%></li>
+						<li><%= link_to("歴史・時代","/8/歴史・時代/category_history/each_category")%></li>
+					</ul>
+					<ul>
+						<li><%= link_to("コメディー","/9/コメディー/category_comedy/each_category")%></li>
+						<li><%= link_to("ミステリー・サスペンス","/2/ミステリー・サスペンス/category_mystery/each_category")%></li>
+						<li><%= link_to("童話","/10/童話/category_douwa/each_category")%></li>
+						<li><%= link_to("その他のジャンル","/11/その他/category_others/each_category")%></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer_right">
+					<%= link_to image_tag('/BookChat_logo.png', { :border => '0', :alt => '小説投稿サイト'}), "/" %>
+					<div class="footer_right_right">
+					<ul>
+						<li><%= link_to("会社情報","/company_information")%></li>
+						<li><%= link_to("お問い合わせ","/company_information/#top_customerQuestion")%></li>
+						<li><%= link_to("利用規約","/termOfUse")%></li>
+					</ul>
+					<ul>
+						<li><%= link_to("プライバシーポリシー","/privacy_policy")%></li>
+						<li><%= link_to("サイトリンク","/")%></li>
+					</ul>
+				    </div>
+					<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+			<br>
+			<div class="footer_down">
+				<div class="footer_down_content">
+					<%= link_to("Medici広場","https://medicihiroba.com")%>　　<%= link_to("KikiMap(海外治安情報)","https://medicihiroba.com/kikimap/")%><br>
+					<div class="footer_bottom">
+						<%= link_to("英会話の等講師紹介","https://medicihiroba.com/toppage_lt.html")%>　　<%= link_to("個人契約の家庭教師紹介","https://medicihiroba.com/toppage_pt.html")%><br><br><%= link_to("MeeCoo","https://mee-coo.com")%>　　<%= link_to("クイズサイト","https://medicihiroba.com/rishiryu/")%>　　<%= link_to("サイトマップ（家庭教師）","/https://mee-coo.com/siteMap_homeTeacher")%>　　<%= link_to("サイトマップ(英会話)","/https://mee-coo.com/siteMap_language")%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+  </body>
+</html>
